@@ -1,0 +1,71 @@
+[
+    {
+        "id": "db4acdc7.c6baa",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9e10aae1.257c68",
+        "type": "retrieve-getchartdata",
+        "z": "db4acdc7.c6baa",
+        "name": "温度・湿度取得",
+        "tableName": "testTable",
+        "objectKey": "testObjectKey",
+        "seriesObject": "[{\"dataName\":\"test\",\"displayName\":\"\"}]",
+        "dateCheck": true,
+        "sdatetime": "",
+        "edatetime": "",
+        "repeatCheck": false,
+        "repeat": "5",
+        "aggregationCheck": false,
+        "aggregation": "max",
+        "aggreunit": "year",
+        "decimalPoint": "noexe",
+        "sort": "true",
+        "limit": "100",
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "589a30db.57f75"
+            ]
+        ]
+    },
+    {
+        "id": "589a30db.57f75",
+        "type": "debug",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "aea83173.602c5",
+        "type": "inject",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "9e10aae1.257c68"
+            ]
+        ]
+    }
+]

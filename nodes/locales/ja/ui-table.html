@@ -1,0 +1,17 @@
+<script type="text/x-red" data-help-name="ui-table-2" data-lang="ja">
+	<p>ダッシュボードにテーブル(表)を表示します。ウィジェット追加方法
+        [<a herf="https://dashboard.flowfuse.com/contributing/widgets/third-party.html">Building Third Party Widgets</a>]を参考に実装したノードです。</p>
+    <h3>入力メッセージ</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">retrieve-getChartdata-iacloud</a>」からの出力結果　または
+            「ノード：<a herf="https://github.com/FlowFuse/node-red-dashboard">node-red-contrib-dashboard</a>」 - chartと同様のフォーマット。詳しくは<a herf="https://github.com/FlowFuse/node-red-dashboard/blob/main/docs/nodes/widgets/ui-chart.md">本ドキュメント</a>を参照</dd>
+    </dl>
+    <h3>詳細説明</h3>
+    <p>このノードは「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">retrieve-getChartdata-iacloud</a>」
+        からの出力を直接本ノードに入力して使用することができます。
+    <p>上記ノードからの出力を使用せず、基本フォーマットデータを入力する場合は、以下プロパティを設定する必要があります。</p>
+    <ul>
+        <li><code>項目名</code> - (文字列)データ表示時の項目名をカンマ区切りで入力する</li>
+    </ul>
+</script>

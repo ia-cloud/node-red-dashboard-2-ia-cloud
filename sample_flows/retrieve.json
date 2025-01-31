@@ -1,0 +1,72 @@
+[
+    {
+        "id": "db4acdc7.c6baa",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "589a30db.57f75",
+        "type": "debug",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "aea83173.602c5",
+        "type": "inject",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "ad55f7b1.a2a678"
+            ]
+        ]
+    },
+    {
+        "id": "ad55f7b1.a2a678",
+        "type": "retrieve",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "tableName": "testTable",
+        "operation": "Query",
+        "objectKey": "testObjectKey",
+        "dateCheck": "",
+        "sdatetime": "",
+        "edatetime": "",
+        "repeatCheck": "",
+        "repeat": "1",
+        "aggregationCheck": false,
+        "aggregation": "max",
+        "aggreunit": "year",
+        "decimalPoint": "noexe",
+        "sort": "true",
+        "limit": "",
+        "Item": "",
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "589a30db.57f75"
+            ]
+        ]
+    }
+]

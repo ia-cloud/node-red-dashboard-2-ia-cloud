@@ -1,0 +1,115 @@
+{
+    "name": "@ia-cloud/node-red-dashboard-2-ia-cloud",
+    "version": "1.0.0",
+    "description": "ia-cloud Node-RED nodes",
+    "keywords": [
+        "node-red",
+        "node-red-dashboard",
+        "node-red-dashboard-2"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud.git"
+    },
+    "license": "Apache-2.0",
+    "main": "nodes/retrieve.js",
+    "author": {
+        "name": "ia-cloud project menbers"
+    },
+    "exports": {
+        "import": "./resources/ui-dashboard-2.esm.js",
+        "require": "./resources/ui-dashboard-2.umd.js"
+    },
+    "files": [
+        "nodes/*",
+        "ui/*",
+        "resources/*",
+        "dynamodbConnection/*"
+    ],
+    "scripts": {
+        "build": "vite build",
+        "build:dev": "NODE_ENV=development vite build",
+        "dev": "NODE_ENV=development vite build --watch",
+        "dev:prod": "vite build --watch",
+        "lint": "npm run lint:js && npm run lint:package",
+        "lint:fix": "npm run lint:js:fix && npm run lint:package:fix",
+        "lint:js": "eslint --ext .js,.vue,.cjs,.mjs .",
+        "lint:js:fix": "yarn lint:js --fix",
+        "lint:package": "sort-package-json --check 'package.json'",
+        "lint:package:fix": "sort-package-json 'package.json'"
+    },
+    "bundleDependencies": false,
+    "dependencies": {
+        "moment": "^2.30.1",
+        "to-title-case": "^1.0.0",
+        "vue": "^3.3.8",
+        "vuex": "^4.1.0",
+        "@ia-cloud/node-red-contrib-ia-cloud-common-nodes": "^0.1.0",
+        "json2csv": "4.3.5",
+        "node-red-dashboard": "2.17.0",
+        "serve-static": "~1.13.2",
+        "socket.io": "^2.2.0",
+        "got": "11.7.0",
+        "ws": "^7.1.2",
+        "websocket-as-promised": "^2.0.1"
+    },
+    "deprecated": false,
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^4.5.0",
+        "eslint": "^8.53.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-n": "^16.3.1",
+        "eslint-plugin-vue": "^9.18.1",
+        "vite": "^5.0.12",
+        "vite-plugin-css-injected-by-js": "^3.3.0",
+        "vite-plugin-static-copy": "^1.0.6",
+        "vite-plugin-vue-devtools": "^7.6.4"
+    },
+    "engines": {
+        "node": ">=14"
+    },
+    "node-red": {
+        "version": ">=3.0.0",
+        "nodes": {
+            "retrieve": "nodes/retrieve.js",
+            "retrieve-getlatestdata": "nodes/retrieve-getlatestdata.js",
+            "retrieve-getchartdata": "nodes/retrieve-getchartdata.js",
+            "ui-table-2": "nodes/ui-table.js",
+            "ui-spreadsheet-2": "nodes/ui-spreadsheet.js",
+            "ui-lamps-2": "nodes/ui-lamps.js",
+            "ui-num-dt-2": "nodes/ui-num-dt.js",
+            "ui-dateset-2": "nodes/ui-dateset.js",
+            "ui-oprstatus-2": "nodes/ui-oprstatus.js"
+        }
+    },
+    "node-red-dashboard-2": {
+        "version": ">=1.0.0",
+        "widgets": {
+            "ui-table-2": {
+                "output": "ui-table-2.umd.js",
+                "component": "UITable"
+            },
+            "ui-spreadsheet-2": {
+                "output": "ui-spreadsheet-2.umd.js",
+                "component": "UISpreadSheet"
+            },
+            "ui-lamps-2": {
+                "output": "ui-lamps-2.umd.js",
+                "component": "UILamps"
+            },
+            "ui-num-dt-2": {
+                "output": "ui-num-dt-2.umd.js",
+                "component": "UINumDt"
+            },
+            "ui-dateset-2": {
+                "output": "ui-dateset-2.umd.js",
+                "component": "UIDateSet"
+            },
+            "ui-oprstatus-2": {
+                "output": "ui-oprstatus-2.umd.js",
+                "component": "UIOprStatus"
+            }
+        }
+    }
+}

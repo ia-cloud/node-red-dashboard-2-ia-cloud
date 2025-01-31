@@ -1,0 +1,17 @@
+{
+    "dateset": {
+        "paletteLabel": "日付設定",
+        "label": {
+            "group": "グループ",
+            "size": "サイズ",
+            "name": "名前"
+        },
+        "dashboard": {
+            "submit": "更新"
+        }
+    },
+    "runtime": {
+        "complete": "送信完了",
+        "connect": "処理中"
+    }
+}

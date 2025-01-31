@@ -1,0 +1,37 @@
+{
+    "spreadsheet": {
+        "paletteLabel": "集計テーブル",
+        "label": {
+            "group": "グループ",
+            "size": "サイズ",
+            "label": "ラベル",
+            "contype": "集計データタイプ",
+            "item": "項目設定",
+            "aneStatus": "ステータス",
+            "name": "名前"
+        },
+        "contype":{
+            "ane": "アラーム&イベント"
+        },
+        "item": {
+            "nodesc":"A&E No，A&E詳細",
+            "no":"A&E No",
+            "desc":"A&E詳細"
+        },
+        "aneStatus": {
+            "set": "set",
+            "reset": "reset",
+            "on": "on",
+            "off": "off"
+        }
+    },
+    "runtime": {
+        "complete": "表示完了",
+        "connect": "処理中",
+        "noData": "表示データなし",
+        "noConType": "集計データタイプが無効です",
+        "noObjCnt": "objectContentが無効です",
+        "formatError": "入力データが無効です",
+        "error": "エラー発生"
+    }
+}

@@ -1,0 +1,64 @@
+[
+    {
+        "id": "db4acdc7.c6baa",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "589a30db.57f75",
+        "type": "debug",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "aea83173.602c5",
+        "type": "inject",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "e15b1ccc.fa7c3"
+            ]
+        ]
+    },
+    {
+        "id": "e15b1ccc.fa7c3",
+        "type": "retrieve-getlatestdata",
+        "z": "db4acdc7.c6baa",
+        "name": "",
+        "tableName": "testTable",
+        "objectKey": "testObjectKey",
+        "seriesObject": "[{\"dataName\":\"test\",\"displayName\":\"\"}]",
+        "decimalPoint": "noexe",
+        "item": "graphData",
+        "repeatCheck": "",
+        "repeat": "1",
+        "x": 340,
+        "y": 60,
+        "wires": [
+            [
+                "589a30db.57f75"
+            ]
+        ]
+    }
+]

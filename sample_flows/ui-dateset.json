@@ -1,0 +1,196 @@
+[
+    {
+        "id": "a2c2c5a4238988b1",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "0ece05c9f1168395",
+        "type": "ui-text",
+        "z": "a2c2c5a4238988b1",
+        "group": "698d18e7c3e5a617",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "開始日付表示",
+        "label": "開始日付表示",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "className": "",
+        "x": 460,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3d7febc9803fd827",
+        "type": "ui-dateset-2",
+        "z": "a2c2c5a4238988b1",
+        "confsel": "inchartSet",
+        "group": "698d18e7c3e5a617",
+        "label": "",
+        "name": "日付指定",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "direction": "Vertical",
+        "display_settings": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "dea999a0cd8d155e",
+                "6297d17c5a2ce4da"
+            ]
+        ]
+    },
+    {
+        "id": "dea999a0cd8d155e",
+        "type": "function",
+        "z": "a2c2c5a4238988b1",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.sdatetime;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "0ece05c9f1168395"
+            ]
+        ]
+    },
+    {
+        "id": "6297d17c5a2ce4da",
+        "type": "function",
+        "z": "a2c2c5a4238988b1",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.edatetime;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "16bb2bf72ba628be"
+            ]
+        ]
+    },
+    {
+        "id": "16bb2bf72ba628be",
+        "type": "ui-text",
+        "z": "a2c2c5a4238988b1",
+        "group": "698d18e7c3e5a617",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "終了日付表示",
+        "label": "終了日付表示",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "className": "",
+        "x": 460,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "698d18e7c3e5a617",
+        "type": "ui-group",
+        "name": "[iaCloud dashboard]テストフロー",
+        "page": "c586f394b4d0e432",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c586f394b4d0e432",
+        "type": "ui-page",
+        "name": "ページ名",
+        "ui": "c6c0f0109feaeb3e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b969bf79218798f8",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c6c0f0109feaeb3e",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "b969bf79218798f8",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

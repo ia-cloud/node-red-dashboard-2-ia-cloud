@@ -1,0 +1,43 @@
+{
+    "ui-oprstatus": {
+        "paletteLabel": "稼動状況",
+        "label": {
+            "group": "グループ",
+            "size": "サイズ",
+            "label": "ラベル",
+            "input": "入力値",
+            "item": "サブタイトル",
+            "itemObject": "状態設定",
+            "name": "名前",
+            "sort": "並び順",
+            "guide": "凡例表示"
+        },
+        "input": {
+            "getchartdata": "データ取得V2(chart用)",
+            "formatdata": "フォーマットデータ"
+        },
+        "itemObject": {
+            "add": "追加",
+            "delete": "削除",
+            "number": "No.",
+            "statusColor": "表示色",
+            "statusValue": "指定値",
+            "statusLabel": "状態名"
+        },
+        "sort": {
+            "asc": "昇順",
+            "desc": "降順"
+        },
+        "guide": {
+            "display": "表示",
+            "hide": "非表示"
+        }
+    },
+    "runtime": {
+        "complete": "表示完了",
+        "connect": "処理中",
+        "noData": "表示データなし",
+        "noParam": "状態設定がありません",
+        "error": "エラー発生"
+    }
+}

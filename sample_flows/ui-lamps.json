@@ -1,0 +1,553 @@
+[
+    {
+        "id": "851d672761e8025c",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d075b72bae36e79c",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "698d18e7c3e5a617",
+        "name": "",
+        "label": "[true]*6",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[true,true,true,true,true,true]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "fdd875439aa8c1e5"
+            ]
+        ]
+    },
+    {
+        "id": "ca71325454d2b5df",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "698d18e7c3e5a617",
+        "name": "",
+        "label": "[false]*6",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[false,false,false,false,false,false]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "fdd875439aa8c1e5"
+            ]
+        ]
+    },
+    {
+        "id": "0f6620cbdb4405a0",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "698d18e7c3e5a617",
+        "name": "",
+        "label": "[true, false]*3",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[true,false,true,false,true,false]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "fdd875439aa8c1e5"
+            ]
+        ]
+    },
+    {
+        "id": "e65db12477188e47",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "698d18e7c3e5a617",
+        "name": "",
+        "label": "[false, true]*3",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[false,true,false,true,false,true]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "fdd875439aa8c1e5"
+            ]
+        ]
+    },
+    {
+        "id": "26cc910164234eae",
+        "type": "comment",
+        "z": "851d672761e8025c",
+        "name": "ui-lamps-2 Horizontal",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "429660f590fed9d1",
+        "type": "comment",
+        "z": "851d672761e8025c",
+        "name": "ui-lamps-2 Vertical",
+        "info": "",
+        "x": 560,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "77a738cc450bb945",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "e3ac5ab6f9fbacc0",
+        "name": "",
+        "label": "[true]*6",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[true,true,true,true,true,true]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 540,
+        "y": 140,
+        "wires": [
+            [
+                "de526d5ae0951d1e"
+            ]
+        ]
+    },
+    {
+        "id": "8131ed1b4789652c",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "e3ac5ab6f9fbacc0",
+        "name": "",
+        "label": "[false]*6",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[false,false,false,false,false,false]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 540,
+        "y": 180,
+        "wires": [
+            [
+                "de526d5ae0951d1e"
+            ]
+        ]
+    },
+    {
+        "id": "6fcc9b1d63168843",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "e3ac5ab6f9fbacc0",
+        "name": "",
+        "label": "[true, false]*3",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[true,false,true,false,true,false]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "de526d5ae0951d1e"
+            ]
+        ]
+    },
+    {
+        "id": "097b4ee6d2c0fc6b",
+        "type": "ui-button",
+        "z": "851d672761e8025c",
+        "group": "e3ac5ab6f9fbacc0",
+        "name": "",
+        "label": "[false, true]*3",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[false,true,false,true,false,true]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 550,
+        "y": 260,
+        "wires": [
+            [
+                "de526d5ae0951d1e"
+            ]
+        ]
+    },
+    {
+        "id": "fdd875439aa8c1e5",
+        "type": "ui-lamps-2",
+        "z": "851d672761e8025c",
+        "confsel": "formatSet",
+        "direction": "Horizontal",
+        "truelist": "truelist",
+        "group": "698d18e7c3e5a617",
+        "label": "Lamps",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "item": "",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "params": [
+            {
+                "phase": "Square",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Square",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Square",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Square",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Square",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Square",
+                "color": "Red",
+                "name": ""
+            }
+        ],
+        "configReady": "ready",
+        "sort": "true",
+        "guide": "display",
+        "x": 350,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "de526d5ae0951d1e",
+        "type": "ui-lamps-2",
+        "z": "851d672761e8025c",
+        "confsel": "formatSet",
+        "direction": "Vertical",
+        "truelist": "truelist",
+        "group": "e3ac5ab6f9fbacc0",
+        "label": "Lamps",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "item": "",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "params": [
+            {
+                "phase": "Circle",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Circle",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Circle",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Circle",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Circle",
+                "color": "Red",
+                "name": ""
+            },
+            {
+                "phase": "Circle",
+                "color": "Red",
+                "name": ""
+            }
+        ],
+        "configReady": "ready",
+        "sort": "true",
+        "guide": "display",
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "698d18e7c3e5a617",
+        "type": "ui-group",
+        "name": "[iaCloud dashboard]テストフロー1",
+        "page": "a3554d1cafbfde35",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "e3ac5ab6f9fbacc0",
+        "type": "ui-group",
+        "name": "[iaCloud dashboard]テストフロー2",
+        "page": "a3554d1cafbfde35",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "a3554d1cafbfde35",
+        "type": "ui-page",
+        "name": "ページ名1",
+        "ui": "c6c0f0109feaeb3e",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b969bf79218798f8",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c6c0f0109feaeb3e",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "b969bf79218798f8",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

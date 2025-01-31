@@ -1,0 +1,157 @@
+[
+    {
+        "id": "21e74c7c9ac09b2c",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "190c8738c9e47189",
+        "type": "ui-oprstatus-2",
+        "z": "21e74c7c9ac09b2c",
+        "confsel": "inchartSet",
+        "group": "698d18e7c3e5a617",
+        "label": "稼働状況テスト",
+        "name": "稼働状況テスト",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "item": "スイッチ1",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "params": [
+            {
+                "statusColor": "#ff0000",
+                "statusValue": "released",
+                "statusLabel": "released"
+            },
+            {
+                "statusColor": "#000000",
+                "statusValue": "pressed",
+                "statusLabel": "pressed"
+            }
+        ],
+        "configReady": "ready",
+        "sort": "true",
+        "guide": "display",
+        "x": 400,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "32303a105fd405cf",
+        "type": "inject",
+        "z": "21e74c7c9ac09b2c",
+        "name": "稼働状況データ",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:36:30+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:36:31+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:36:41+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:36:45+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:37:03+09:00\",\"y\":\"pressed\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:37:07+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:37:09+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:37:50+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:37:51+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:00+09:00\",\"y\":\"pressed\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:01+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:03+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:04+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:11+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:13+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:21+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:22+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:37+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:39+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:40+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:38:53+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:39:03+09:00\",\"y\":\"pressed\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:39:07+09:00\",\"y\":\"released\"},{\"series\":\"スイッチ1\",\"x\":\"2025-01-20T15:39:08+09:00\",\"y\":\"released\"}]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "190c8738c9e47189"
+            ]
+        ]
+    },
+    {
+        "id": "698d18e7c3e5a617",
+        "type": "ui-group",
+        "name": "[iaCloud dashboard]テストフロー1",
+        "page": "c586f394b4d0e432",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c586f394b4d0e432",
+        "type": "ui-page",
+        "name": "ページ名",
+        "ui": "c6c0f0109feaeb3e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b969bf79218798f8",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c6c0f0109feaeb3e",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "b969bf79218798f8",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

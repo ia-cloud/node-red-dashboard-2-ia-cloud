@@ -1,0 +1,199 @@
+[
+    {
+        "id": "485f19d6abe5e5a7",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "75f4442c6d5306ed",
+        "type": "inject",
+        "z": "485f19d6abe5e5a7",
+        "name": "アラーム&イベント",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Items\":[{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T15:28:33+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T15:28:33+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T15:32:23+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T15:32:23+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T15:40:54+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T15:40:54+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T15:46:45+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T15:46:45+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T16:02:46+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T16:02:46+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T16:02:56+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T16:02:56+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T16:37:04+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T16:37:04+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T17:13:12+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T17:13:12+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T17:40:04+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T17:40:04+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T17:53:06+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T17:53:06+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T17:53:11+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T17:53:11+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T17:55:31+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T17:55:31+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T18:18:03+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T18:18:03+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T18:31:05+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T18:31:05+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T19:05:48+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T19:05:48+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T19:57:08+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T19:57:08+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T20:53:58+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T20:53:58+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T21:32:42+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T21:32:42+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T22:09:10+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T22:09:10+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T22:15:20+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T22:15:20+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T22:50:53+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T22:50:53+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T22:50:58+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T22:50:58+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T23:14:45+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T23:14:45+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2025-01-20T23:18:06+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2025-01-20T23:18:06+09:00\"}]}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "415cb30886b6cbd7"
+            ]
+        ]
+    },
+    {
+        "id": "e60988bf6b3d9aef",
+        "type": "inject",
+        "z": "485f19d6abe5e5a7",
+        "name": "温度・湿度",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"series\":[\"温度\",\"湿度\"],\"data\":[[{\"x\":\"2025-01-24T17:14:18+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:22+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:26+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:30+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:34+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:38+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:42+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:46+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:50+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:55+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:14:59+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:10+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:17+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:19+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:21+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:23+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:25+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:27+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:29+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:31+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:33+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:35+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:37+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:39+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:41+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:43+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:45+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:47+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:49+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:51+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:53+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:55+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:57+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:15:59+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:01+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:04+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:06+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:08+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:10+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:12+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:14+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:16+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:18+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:20+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:22+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:24+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:26+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:28+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:30+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:32+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:34+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:36+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:38+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:40+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:42+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:44+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:46+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:48+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:50+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:52+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:54+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:56+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:16:58+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:00+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:02+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:04+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:06+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:08+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:10+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:12+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:14+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:16+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:18+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:20+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:22+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:24+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:26+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:29+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:31+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:33+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:35+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:37+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:39+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:41+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:43+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:45+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:47+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:49+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:51+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:53+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:55+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:57+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:17:59+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:01+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:03+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:05+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:07+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:09+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:11+0900\",\"y\":24.5},{\"x\":\"2025-01-24T17:18:13+0900\",\"y\":24.5}],[{\"x\":\"2025-01-24T17:14:18+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:22+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:26+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:30+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:34+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:38+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:42+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:46+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:50+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:55+0900\",\"y\":74},{\"x\":\"2025-01-24T17:14:59+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:10+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:17+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:19+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:21+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:23+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:25+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:27+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:29+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:31+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:33+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:35+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:37+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:39+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:41+0900\",\"y\":74},{\"x\":\"2025-01-24T17:15:43+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:45+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:47+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:49+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:51+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:53+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:55+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:57+0900\",\"y\":73},{\"x\":\"2025-01-24T17:15:59+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:01+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:04+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:06+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:08+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:10+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:12+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:14+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:16+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:18+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:20+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:22+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:24+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:26+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:28+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:30+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:32+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:34+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:36+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:38+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:40+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:42+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:44+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:46+0900\",\"y\":73},{\"x\":\"2025-01-24T17:16:48+0900\",\"y\":74},{\"x\":\"2025-01-24T17:16:50+0900\",\"y\":74},{\"x\":\"2025-01-24T17:16:52+0900\",\"y\":74},{\"x\":\"2025-01-24T17:16:54+0900\",\"y\":74},{\"x\":\"2025-01-24T17:16:56+0900\",\"y\":74},{\"x\":\"2025-01-24T17:16:58+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:00+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:02+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:04+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:06+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:08+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:10+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:12+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:14+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:16+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:18+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:20+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:22+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:24+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:26+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:29+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:31+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:33+0900\",\"y\":73},{\"x\":\"2025-01-24T17:17:35+0900\",\"y\":73},{\"x\":\"2025-01-24T17:17:37+0900\",\"y\":73},{\"x\":\"2025-01-24T17:17:39+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:41+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:43+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:45+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:47+0900\",\"y\":73},{\"x\":\"2025-01-24T17:17:49+0900\",\"y\":73},{\"x\":\"2025-01-24T17:17:51+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:53+0900\",\"y\":73},{\"x\":\"2025-01-24T17:17:55+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:57+0900\",\"y\":74},{\"x\":\"2025-01-24T17:17:59+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:01+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:03+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:05+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:07+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:09+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:11+0900\",\"y\":74},{\"x\":\"2025-01-24T17:18:13+0900\",\"y\":74}]],\"labels\":[\"\"]}]",
+        "payloadType": "json",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "d893858a5f989b2e"
+            ]
+        ]
+    },
+    {
+        "id": "d893858a5f989b2e",
+        "type": "ui-table-2",
+        "z": "485f19d6abe5e5a7",
+        "confsel": "inchartSet",
+        "group": "ca90b810cf0322c2",
+        "name": "温度・湿度テーブル",
+        "label": "温度・湿度一覧",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "contype1": "Alarm&Event",
+        "contype2": "iaCloudData",
+        "statuslist": "",
+        "statuscheck-set": "",
+        "statuscheck-reset": "",
+        "statuscheck-on": "",
+        "statuscheck-off": "",
+        "item": "",
+        "x": 500,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "415cb30886b6cbd7",
+        "type": "ui-table-2",
+        "z": "485f19d6abe5e5a7",
+        "confsel": "dynamodbSet",
+        "group": "ca90b810cf0322c2",
+        "name": "アラーム&イベントテーブル",
+        "label": "アラーム&イベント一覧",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "contype1": "Alarm&Event",
+        "contype2": "iaCloudData",
+        "statuslist": "set,reset,off,on",
+        "statuscheck-set": true,
+        "statuscheck-reset": true,
+        "statuscheck-on": true,
+        "statuscheck-off": true,
+        "item": "",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ca90b810cf0322c2",
+        "type": "ui-group",
+        "name": "グループ名",
+        "page": "b0f457ca7b075024",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "b0f457ca7b075024",
+        "type": "ui-page",
+        "name": "ページ名",
+        "ui": "c6c0f0109feaeb3e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b969bf79218798f8",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c6c0f0109feaeb3e",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "b969bf79218798f8",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

@@ -1,0 +1,87 @@
+{
+    "retrieve": {
+        "label": {
+            "paletteLabel": "Data Get V2 (Normal) ",
+            "name": "name",
+            "ccs-connection-config": "CCS",
+            "tableName": "tableName",
+            "operation": "operation",
+            "objectKey": "objectKey",
+            "period": "period",
+            "repeat": "repeat",
+            "aggregation": "aggregation",
+            "round": "round",
+            "limit": "maximum data number",
+            "sort": "sort",
+            "item": "item"
+        },
+        "operation": {
+            "Query": "Query",
+            "Scan": "Scan",
+            "PutItem": "PutItem"
+        },
+        "period": {
+            "inDateset": "Enter from the dataset",
+            "inNodeSetting": "Enter in node settings"
+        },
+        "repeat": {
+            "check": "Repeat the process"
+        },
+        "aggregation": {
+            "aggregationCheck": "setting",
+            "aggreunit": "unit",
+            "max": "max",
+            "min": "min",
+            "average": "average",
+            "median": "median",
+            "count": "count",
+            "integration": "integration",
+            "first": "firstData",
+            "last": "lastData",
+            "year": "year",
+            "month": "month",
+            "week": "week",
+            "day": "day",
+            "hour": "hour",
+            "minute": "minute",
+            "second": "second"
+        },
+        "round": {
+            "noexe": "noexe",
+            "3": "Third decimal place",
+            "2": "Second decimal place",
+            "1": "First decimal place",
+            "0": "Integer",
+            "-1": "Ones place",
+            "-2": "Tens place",
+            "-3": "Hundreds place"
+        },
+        "sort": {
+            "asc": "ascending order",
+            "desc": "descending order"
+        }
+    },
+    "editor": {
+        "paletteLabel": "ia-cloud connect",
+        "name": "Node name",
+        "ccs-connection-config": "CCS",
+        "details": "use details",
+        "FDSKey": "Unique Key of the data source",
+        "comment": "Discription of the data source",
+        "cnctRetryInterval": "CCS Retry Interval",
+        "tappingInterval": "CCS Tapping Interval",
+        "tip-cnctRetryInterval": "Retry interval in minutes for CCS connection error.Use 0 for no-retry.",
+        "tip-tappingInterval": "Tapping CCS interval in hours to check connection using getStatus request.Use 0 for no-retry."
+    },
+    "runtime": {
+        "connected": "connected",
+        "disconnected": "disconnected",
+        "connecting": "connecting...",
+        "requesting": "requesting...",
+        "request-done": "request-done",
+        "error": "error",
+        "no-response": "CCS did not respond",
+        "bad-response": "CCS bad response",
+        "json-error": "CCS bad JSON message"
+    }
+}

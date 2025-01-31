@@ -1,0 +1,38 @@
+{
+    "uiLamps": {
+        "paletteLabel": "lampGauge",
+        "label": {
+            "group": "Group",
+            "size": "Size",
+            "direction": "Direction",
+            "input": "input",
+            "getchartdata": "getChartdata",
+            "getlatestdata": "getLatestdata",
+            "formatdata": "formatdata",
+            "vertical": "Vertical",
+            "horizontal": "Horizontal",
+            "label": "Label",
+            "itemObject": "itemObject",
+            "number": "No.",
+            "add": "Add",
+            "delete": "Delete",
+            "phase": "Phase",
+            "square": "Square",
+            "circle": "Circle",
+            "color": "Color",
+            "red": "Red",
+            "green": "Green",
+            "blue": "Blue",
+            "yellow": "Yellow",
+            "orange": "Orange",
+            "purple": "Purple",
+            "white": "White",
+            "name": "displayName",
+            "truelist": "truelist"
+        }
+    },
+    "runtime": {
+        "complete": "complete",
+        "connect": "processing..."
+    }
+}

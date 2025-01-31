@@ -1,0 +1,14 @@
+<script type="text/x-red" data-help-name="retrieve-getlatestdata" data-lang="ja">
+	<p>このノードは指定したDynamoDBから直近1件分のiacloudオブジェクトを取得し、<a href ="https://github.com/node-red/node-red-dashboard">node-red ダッシュボード</a>、
+		<a href ="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud">iacloudダッシュボードノード</a>の各ノードへ入力する際の形へ変換することができます。</p>
+    <h3>出力メッセージ</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>取得したiacloudオブジェクトを指定された各ダッシュボードノードへ入力する際の形に変換した結果（json形式）。</dd>
+    </dl>
+    <h3>詳細説明</h3>
+	<p>AWS-SDK DynamoDB関数をラップしており、DynamoDBからデータを取得する処理にはQueryを使用しています。</p>
+	<p>本ノードはJavascript APIをラップしたものです。より詳細に知るには、<a href="https://docs.aws.amazon.com/sdkforruby/api/Aws/DynamoDB/Client.html">APIドキュメント</a>を参照してください。</p>
+	<p><b>注</b>:このノードを使用するには、DynamoDB操作ユーザの情報が必要になります。  
+		ユーザ情報は別途発行・取得する必要があります。</p>
+</script>

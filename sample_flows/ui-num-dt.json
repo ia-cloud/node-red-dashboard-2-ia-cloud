@@ -1,0 +1,302 @@
+[
+    {
+        "id": "4b19b2406b1c817b",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b641c1aff2bc6c6d",
+        "type": "comment",
+        "z": "4b19b2406b1c817b",
+        "name": "ui-numDt Number",
+        "info": "",
+        "x": 170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "082316315c77a6b7",
+        "type": "comment",
+        "z": "4b19b2406b1c817b",
+        "name": "ui-numDt Datetime",
+        "info": "",
+        "x": 170,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5addb8dbc001ac67",
+        "type": "ui-num-dt-2",
+        "z": "4b19b2406b1c817b",
+        "group": "d3525e50dc907677",
+        "name": "num-dt1",
+        "label": "uiNumDt",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "datatype": "Number",
+        "display_settings": "[{\"label\":\"センサ1\",\"digits\":\"1\",\"units\":\"\",\"dt_label\":\"\",\"format\":\"\"},{\"label\":\"センサ2\",\"digits\":\"2\",\"units\":\"\",\"dt_label\":\"\",\"format\":\"\"},{\"label\":\"\",\"digits\":\"2\",\"units\":\"\",\"dt_label\":\"\",\"format\":\"\"},{\"label\":\"\",\"digits\":\"1\",\"units\":\"\",\"dt_label\":\"\",\"format\":\"\"}]",
+        "x": 300,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a79fd74888eee1ee",
+        "type": "ui-num-dt-2",
+        "z": "4b19b2406b1c817b",
+        "group": "d3525e50dc907677",
+        "name": "num-dt2",
+        "label": "uiNumDt",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "datatype": "Number",
+        "display_settings": "[{\"label\":\"\",\"digits\":\"\",\"units\":\"\",\"dt_label\":\"\",\"format\":\"\"}]",
+        "x": 300,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fac63b806a8b52e2",
+        "type": "ui-num-dt-2",
+        "z": "4b19b2406b1c817b",
+        "group": "d3525e50dc907677",
+        "name": "",
+        "label": "uiNumDt",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "datatype": "Datetime",
+        "display_settings": "[{\"label\":\"No.1\",\"digits\":\"\",\"units\":\"\",\"dt_label\":\"No.1\",\"format\":\"YYYY年MM月DD日 HH時mm分ss秒\"},{\"label\":\"No.2\",\"digits\":\"\",\"units\":\"\",\"dt_label\":\"No.2\",\"format\":\"\"},{\"label\":\"\",\"digits\":\"\",\"units\":\"\",\"dt_label\":\"\",\"format\":\"YYYYMMDD_HHmmss\"},{\"label\":\"No.4\",\"digits\":\"\",\"units\":\"\",\"dt_label\":\"No.4\",\"format\":\"YYYY年M月D日 H時m分s秒\"}]",
+        "x": 460,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6b16568e67c055ed",
+        "type": "function",
+        "z": "4b19b2406b1c817b",
+        "name": "[payload]*4",
+        "func": "msg.payload = [msg.payload, msg.payload, msg.payload, msg.payload];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "fac63b806a8b52e2"
+            ]
+        ]
+    },
+    {
+        "id": "7f07067f156522c0",
+        "type": "ui-form",
+        "z": "4b19b2406b1c817b",
+        "name": "",
+        "group": "d3525e50dc907677",
+        "label": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "",
+                "key": "date",
+                "type": "date",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "date": ""
+        },
+        "payload": "",
+        "submit": "送信",
+        "cancel": "中止",
+        "resetOnSubmit": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "passthru": false,
+        "dropdownOptions": [],
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "6b16568e67c055ed"
+            ]
+        ]
+    },
+    {
+        "id": "558312f64b2ca3ef",
+        "type": "ui-button",
+        "z": "4b19b2406b1c817b",
+        "group": "d3525e50dc907677",
+        "name": "",
+        "label": "ボタン1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[[\"温度\",26.52,\"℃\"],[\"湿度\",65.512,\"%\"],[\"気圧\",1020.4,\"hPa\"],[\"照度\",432.3,\"lx\"]]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "5addb8dbc001ac67",
+                "a79fd74888eee1ee"
+            ]
+        ]
+    },
+    {
+        "id": "5488e375c77b363f",
+        "type": "ui-button",
+        "z": "4b19b2406b1c817b",
+        "group": "d3525e50dc907677",
+        "name": "",
+        "label": "ボタン2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[[\"温度\",30.167,\"℃\"],[\"湿度\",40.54,\"%\"],[\"気圧\",998.8756,\"hPa\"],[\"照度\",52.3536,\"lx\"]]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "a79fd74888eee1ee",
+                "5addb8dbc001ac67"
+            ]
+        ]
+    },
+    {
+        "id": "d3525e50dc907677",
+        "type": "ui-group",
+        "name": "グループ名",
+        "page": "33255636b13882da",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "33255636b13882da",
+        "type": "ui-page",
+        "name": "ページ名",
+        "ui": "c6c0f0109feaeb3e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b969bf79218798f8",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c6c0f0109feaeb3e",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "b969bf79218798f8",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

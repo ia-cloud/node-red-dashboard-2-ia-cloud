@@ -1,0 +1,43 @@
+{
+    "oprstatus": {
+        "paletteLabel": "oprationStatus",
+        "label": {
+            "group": "group",
+            "size": "size",
+            "label": "label",
+            "input": "input",
+            "item": "subtitle",
+            "itemObject": "itemObject",
+            "name": "name",
+            "sort": "sort",
+            "guide": "itemObject guide"
+        },
+        "input": {
+            "getchartdata": "DynamoDB(for chart)",
+            "formatdata": "formatdata"
+        },
+        "itemObject": {
+            "add": "add",
+            "delete": "delete",
+            "number": "No.",
+            "statusColor": "statusColor",
+            "statusValue": "statusValue",
+            "statusLabel": "statusLabel"
+        },
+        "sort": {
+            "asc": "ascending order",
+            "desc": "descending order"
+        },
+        "guide": {
+            "display": "display",
+            "hide": "hide"
+        }
+    },
+    "runtime": {
+        "complete": "complete",
+        "connect": "processing...",
+        "noData": "no data",
+        "noParam": "no itemObject",
+        "error": "error"
+    }
+}

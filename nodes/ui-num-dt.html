@@ -1,0 +1,207 @@
+<script type="text/javascript">
+    function mk_conf(NAME) {
+        function add_attr_suf_for_label_text_link(text_sel, suffix){
+            var class_name = $(text_sel).attr('class');
+            $(text_sel).attr('id', class_name+suffix);
+            $(text_sel).siblings('label[for*='+class_name+']').attr('for', class_name+suffix);
+        };
+        function add_form_block(template, val){
+            var clone = template.clone();
+            clone.removeClass('template');
+            var idx = $('#blocks div.form-block').length;
+            update_id(clone, idx+1);
+            clone.appendTo('#blocks');
+            clone.find('input.number_label').val(val.label);
+            clone.find('input.number_digits').val(val.digits);
+            clone.find('input.number_units').val(val.units);
+            clone.find('input.datetime_label').val(val.dt_label);
+            clone.find('input.datetime_format').val(val.format);
+            clone.slideDown('fast');
+        };
+        function update_id(elm, idx){
+            $(elm).find('.seq').text(idx);
+            add_attr_suf_for_label_text_link($(elm).find('input.number_label'), idx);
+            add_attr_suf_for_label_text_link($(elm).find('input.number_digits'), idx);
+            add_attr_suf_for_label_text_link($(elm).find('input.number_units'), idx);
+            add_attr_suf_for_label_text_link($(elm).find('input.datetime_label'), idx);
+            add_attr_suf_for_label_text_link($(elm).find('input.datetime_format'), idx);
+        };
+        function get_display_settings(elm){
+            var item = {label: '', digits: '', units: '', dt_label: '', format: ''};
+            item.label = $(elm).find('input.number_label').val();
+            item.digits = $(elm).find('input.number_digits').val();
+            item.units = $(elm).find('input.number_units').val();
+            item.dt_label = $(elm).find('input.datetime_label').val();
+            item.format = $(elm).find('input.datetime_format').val();
+            return item;
+        };
+
+        var conf = {
+            category: 'iaCloud Visuals for Dashboard2',
+            color: 'rgb(119, 198, 204)',
+            defaults: {
+                group: { type: 'ui-group', required: true },
+                name: { value: '' },
+                label: { value: NAME },
+                order: { value: 0 },
+                width: {
+                    value: 0,
+                    validate: function (v) {
+                        var valid = true
+                        var width = v || 0;
+                        var currentGroup = $('#node-input-group').val() || this.group;
+                        var groupNode = RED.nodes.node(currentGroup);
+                        valid = !groupNode || +width <= +groupNode.width;
+                        $("#node-input-size").toggleClass("input-error", !valid);
+                        return valid;
+                    }
+                },
+                height: { value: 0 },
+                datatype: {value: 'Number'},
+                display_settings: {value: ''}
+            },
+            inputs: 1,
+            outputs: 0,
+            align: "right",
+            icon: "ia-cloud.png",
+            paletteLabel: NAME,
+            label: function () {
+                return this.name || this._("uiNumDt.paletteLabel");
+            },
+            labelStyle: function () {
+                return this.name ? "node_label_italic" : "";
+            },
+            paletteLabel: function () {
+                return this._("uiNumDt.paletteLabel") || "ui_num_dt";
+            },
+            oneditprepare: function() {
+                var conf = $('#node-input-display_settings').val();
+                if (conf) {
+                    var dItems = {};
+                    try { dItems = JSON.parse(conf); }
+                    catch(e) { conf = '';}
+                }
+                var template = $('.template');
+                var defVal = {label: '', digits: '', units: '', dt_label: '', format: ''};
+                if(conf != ''){
+                    var dItems = JSON.parse(conf);
+                    $('#blocks div.form-block').each(function(idx, elm) { $(elm).remove(); });
+                    dItems.forEach(function(val, idx) {
+                        add_form_block(template, val);
+                    });
+                    if(dItems.length == 1){
+                        $('#blocks div.form-block .del_btn').hide();
+                    }
+                }else{
+                    add_form_block(template, defVal);
+                    $('#blocks div.form-block .del_btn').hide();
+                }
+                $('#blocks div.form-block:last-child .add_btn').css('display', 'inline-block');
+                $('#node-input-size').elementSizer({
+                    width: '#node-input-width',
+                    height: '#node-input-height',
+                    group: '#node-input-group'
+                });
+                $('#node-input-datatype').on('change', function() {
+                    var selected = $('option:selected', this).val();
+                    if(selected == 'Number'){
+                        $('.node-group-number').css('display', 'inline');
+                        $('.node-group-datetime').hide();
+                    }else if(selected == 'Datetime'){
+                        $('.node-group-number').hide();
+                        $('.node-group-datetime').css('display', 'inline');
+                    }
+                });
+                $('#blocks').on('click', 'a.add_btn', function() {
+                    $(this).hide();
+                    $(this).siblings('.del_btn').css('display', 'inline-block');
+                    var template = $('.template');
+                    add_form_block(template, defVal);
+                    $('#blocks div.form-block:last-child .add_btn').css('display', 'inline-block');
+                });
+                $('#blocks').on('click', 'a.del_btn', function() {
+                    var removeObj = $(this).parents('div.form-block');
+                    removeObj.fadeOut('fast', function() {
+                        removeObj.remove();
+                        $('#blocks div.form-block').each(function(idx, elm) {
+                            update_id(elm, idx+1);
+                            $('#blocks div.form-block:last-child .add_btn').css('display', 'inline-block');
+                        });
+                        if($('#blocks div.form-block').size() <= 1){
+                            $('#blocks div.form-block .del_btn').hide();
+                        }
+                    });
+                });
+            },
+            oneditsave: function() {
+                var dItems = [];
+                $('#blocks div.form-block').each(function(idx, elm){
+                    dItems[idx] = get_display_settings(elm);
+                });
+                try {
+                    $('#node-input-display_settings').val(JSON.stringify(dItems));
+                }catch(e) {
+                    $('#node-input-display_settings').val('');
+                }
+            }
+        };
+        return conf;
+    }
+
+    RED.nodes.registerType('ui-num-dt-2', mk_conf('NumDt'));
+</script>
+
+<script type="text/html" data-template-name="ui-num-dt-2">
+
+    <!-- グループ -->
+	<div class="form-row">
+        <label for="node-input-group"><i class="fa fa-table"></i> <span data-i18n="uiNumDt.label.group"></span></label>
+        <input type="text" id="node-input-group">
+    </div>
+
+    <!-- 表示サイズ -->
+    <div class="form-row">
+        <label><i class="fa fa-object-group"></i> <span data-i18n="uiNumDt.label.size"></span></label>
+        <input type="hidden" id="node-input-width">
+        <input type="hidden" id="node-input-height">
+        <button class="editor-button" id="node-input-size"></button>
+    </div>
+
+    <!--データ型 -->
+    <div class="form-row">
+        <label for="node-input-datatype"><i class="fa fa-list"></i> <span data-i18n="uiNumDt.label.datatype"></span></label>
+        <select type="text" id="node-input-datatype" style="width: 100px;">
+            <option selected="selected" value="Number" data-i18n="uiNumDt.label.number"></option>
+            <option value="Datetime" data-i18n="uiNumDt.label.datetime"></option>
+        </select>
+    </div>
+
+    <!-- 表示内容 -->
+    <div class="form-row" hidden>
+        <input type="text" id="node-input-display_settings">
+    </div>
+    <div id="blocks">
+    </div>
+    <div class="form-block hide template">
+        <div class="form-row">
+            <label style="padding-left: 10px; width: 90px;"><i class="fa fa-hashtag"></i> <span class="seq"></span></label>
+            <label class="node-group-number" style="display: inline;">
+                <input type="text" style="width: 100px;" class="number_label" id="number_label" data-i18n="[placeholder]uiNumDt.label.numLabel">
+                <input type="number" style="width: 90px;" min="-5" max="5" class="number_digits" id="number_digits" data-i18n="[placeholder]uiNumDt.label.numDigits"">
+                <input type="text" style="width: 50px;" class="number_units" id="number_units" data-i18n="[placeholder]uiNumDt.label.numUnits">
+            </label>
+            <label class="node-group-datetime" style="display: none;">
+                <input type="text" style="width: 13%;" class="datetime_label" id="datetime_label" data-i18n="[placeholder]uiNumDt.label.dtLabel">
+                <input type="text" style="width: 44%;" class="datetime_format" id="datetime_format" data-i18n="[placeholder]uiNumDt.label.dtFormat">
+            </label>
+            <a class="editor-button del_btn"><i class="fa fa-remove"></i></a>
+            <a class="editor-button add_btn hide"><i class="fa fa-plus"></i></a>
+        </div>
+    </div>
+
+    <!-- ノード名 -->
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>

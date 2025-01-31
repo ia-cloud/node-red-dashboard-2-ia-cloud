@@ -1,0 +1,25 @@
+<script type="text/x-red" data-help-name="ui-oprstatus-2" data-lang="ja">
+    <p>ダッシュボードに稼動状態グラフを表示します。ウィジェット追加方法
+        [<a herf="https://dashboard.flowfuse.com/contributing/widgets/third-party.html">Building Third Party Widgets</a>]を参考に実装したノードです。</p>
+    <h3>入力メッセージ</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd>「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">node-red-contrib-retrieve-getChartdata-iacloud</a>」からの出力結果　または
+            「ノード：<a herf="https://github.com/FlowFuse/node-red-dashboard">FlowFuse/node-red-contrib-dashboard</a>」 - chartと同様のフォーマット。詳しくは<a herf="https://github.com/FlowFuse/node-red-dashboard/blob/main/docs/nodes/widgets/ui-chart.md">本ドキュメント</a>を参照</dd>
+    </dl>
+    <h3>詳細説明</h3>
+    <p>このノードは「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">node-red-contrib-retrieve-getchartdata-iacloud</a>」
+        からの出力を直接本ノードに入力して使用することができます。
+    <p>出力するデータに応じてプロパティを設定する必要があります。</p>
+    <ul>
+        <li><code>サブタイトル</code> - (文字列)表示する稼働状況グラフのサブタイトル</li>
+        <li><code>状態設定</code></li>
+        <ul>
+        <li><code>表示色</code> - (文字列)グラフ上に表示する際の色を指定</li>
+        <li><code>指定値</code> - (文字列)グラフ上に表示する値の値の指定</li>
+        <li><code>状態名</code> - (文字列)グラフ上のに表示する凡例を記入</li>
+        </ul>
+    </ul>
+    <p><b>注</b>:各項目詳細設定に記載のない値が入力された場合、該当部分のグラフは描画されません。</p>
+
+</script>

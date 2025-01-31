@@ -1,0 +1,65 @@
+<script type="text/x-red" data-help-name="ui-lamps-2" data-lang="ja">
+    <p><h1>ダッシュボードのカスタムノード</h1></p>
+    <p>「形状、色」の設定した数だけ、表示灯をダッシュボード上に並べて表示する。</p>
+    <p>向き：「縦」上から下へ並べて表示する。</p>
+    <p>向き：「横」左から右へ並べて表示する。</p><br>
+    <p>msg.payloadのデータ形式は、[value, ...]とする。</p>
+    <p>表示灯の状態変化は、以下のようにvalueの値によって異なる。</p>
+    <style>
+        td{
+            padding: 0 10px;
+            text-align: center;
+        }
+    </style>
+    <table border="1">
+        <tr>
+            <td>表示灯の状態</td>
+            <td>value</td>
+            <td>データ型</td>
+        </tr>
+        <tr>
+            <td rowspan="4">点灯</td>
+            <td>true</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>number</td>
+        </tr>
+        <tr>
+            <td>"true"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>"1"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td rowspan="4">消灯</td>
+            <td>false</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>number</td>
+        </tr>
+        <tr>
+            <td>"false"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>"0"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td rowspan="2">変化なし</td>
+            <td>""</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>null</td>
+            <td>null</td>
+        </tr>
+    </table>
+
+</script>

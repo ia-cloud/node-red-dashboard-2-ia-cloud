@@ -1,0 +1,14 @@
+<script type="text/x-red" data-help-name="ui-dateset-2" data-lang="ja">
+	<p>ウィジェット追加方法
+        [<a herf="https://dashboard.flowfuse.com/contributing/widgets/third-party.html">Building Third Party Widgets</a>]を参考に実装したノードです。
+		開始日時・終了日時の取得ができます。
+		「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-iacloud">retrieve-iacloud</a>」、「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">retrieve-getChartdata-iacloud</a>」の入力に使用します。</p>
+	<h3>出力メッセージ</h3>
+	<dl class="message-properties">
+		<dt>payload <span class="property-type">object</span></dt>
+		<dd>ダッシュボードから取得した開始日時、終了日時を出力します。</dd>
+	</dl>
+	<h3>詳細説明</h3>
+	<p>開始日時がsdate, 終了日時がedateに設定されたオブジェクトが出力されます。
+		開始日時、終了日付が入力されていなかった場合、入力されなかった項目が削除された結果が出力されます。</p>
+</script>

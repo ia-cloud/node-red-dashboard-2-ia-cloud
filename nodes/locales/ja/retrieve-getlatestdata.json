@@ -1,0 +1,69 @@
+{
+    "retrievegetlatestdata": {
+        "paletteLabel": "データ取得V2(最新取得用)",
+        "label": {
+            "name": "名前",
+            "ccs-connection-config": "接続先CCS",
+            "tableName": "テーブル名",
+            "objectKey": "オブジェクトキー",
+            "series": "項目設定",
+            "repeat": "繰り返し",
+            "round": "表示桁数",
+            "item": "出力形式"
+        },
+        "series": {
+            "number": "No.",
+            "dataName": "dataName",
+            "displayName": "表示名",
+            "add": "追加",
+            "delete": "削除"
+        },
+        "repeat": {
+            "check": "処理を繰り返す"
+        },
+        "round": {
+            "noexe": "丸め無し",
+            "3": "小数第3位",
+            "2": "小数第2位",
+            "1": "小数第1位",
+            "0": "整数",
+            "-1": "1の位",
+            "-2": "10の位",
+            "-3": "100の位"
+        },
+        "item": {
+            "graphData": "グラフ用データ",
+            "numericData": "数値変換用データ"
+        }
+    },
+    "editor": {
+        "paletteLabel": "ia-cloud-V2接続",
+        "name": "ノード名称",
+        "ccs-connection-config": "接続先CCS",
+        "details": "詳細設定有効",
+        "fdsKey": "データソースのユニークキー",
+        "comment": "データソースの説明",
+        "cnctRetryInterval": "CCS接続リトライ間隔",
+        "tappingInterval": "接続確認間隔",
+        "tip-fdskey": "独自のFDSKeyを指定する場合に変更してください",
+        "tip-cnctRetryInterval": "CCSへの接続が切断された時のリトライ間隔。分単位で設定。0はリトライを行わない",
+        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない"
+    },
+    "runtime": {
+        "connect": "接続中",
+        "complete": "取得完了",
+        "noData": "取得データなし",
+        "faild": "データ取得失敗",
+        "periodError": "指定期間が無効",
+        "connected": "接続済",
+        "disconnected": "切断",
+        "connecting": "接続中...",
+        "requesting": "要求中...",
+        "request-done": "要求完了",
+        "error": "エラー",
+        "no-response": "CCSが応答しません",
+        "bad-response": "CCSがエラーを返しました",
+        "json-error": "CCSが不正なJSONメッセージを返しました",
+        "wait": "CCSへの接続が完了するまで待ってください"
+    }
+}

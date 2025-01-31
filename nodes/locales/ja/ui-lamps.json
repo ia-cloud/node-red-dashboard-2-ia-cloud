@@ -1,0 +1,38 @@
+{
+    "uiLamps": {
+        "paletteLabel": "ランプ",
+        "label": {
+            "group": "グループ",
+            "size": "サイズ",
+            "direction": "向き",
+            "input": "入力値",
+            "getchartdata": "DynamoDB(chart用)",
+            "getlatestdata": "DynamoDB(最新取得用)",
+            "formatdata": "フォーマットデータ",
+            "vertical": "縦",
+            "horizontal": "横",
+            "label": "ラベル",
+            "itemObject": "状態設定",
+            "number": "No.",
+            "add": "追加",
+            "delete": "削除",
+            "phase": "形状",
+            "square": "四角",
+            "circle": "丸",
+            "color": "色",
+            "red": "赤",
+            "green": "緑",
+            "blue": "青",
+            "yellow": "黄",
+            "orange": "橙",
+            "purple": "紫",
+            "white": "白",
+            "name": "表示名",
+            "truelist": "点灯させる値"
+        }
+    },
+    "runtime": {
+        "complete": "表示完了",
+        "connect": "処理中"
+    }
+}

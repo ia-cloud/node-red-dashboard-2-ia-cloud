@@ -1,0 +1,39 @@
+{
+    "table": {
+        "paletteLabel": "テーブル",
+        "label": {
+            "group": "グループ",
+            "size": "サイズ",
+            "label": "ラベル",
+            "input": "入力値",
+            "contype": "集計データタイプ",
+            "statuscheck": "表示ステータス",
+            "name": "名前"
+        },
+        "input": {
+            "retrieve": "retrieve",
+            "getchartdata": "retrieve-getChartdata",
+            "formatdata": "フォーマットデータ",
+            "item": "項目名"
+        },
+        "contype":{
+            "ane": "アラーム&イベント",
+            "iacd": "ia-cloudデータ"
+        },
+        "ane": {
+            "set": "set",
+            "reset": "reset",
+            "on": "on",
+            "off": "off"
+        }
+    },
+    "runtime": {
+        "complete": "表示完了",
+        "connect": "処理中",
+        "noData": "表示データなし",
+        "noConType": "集計データタイプが無効です",
+        "noObjCnt": "objectContentが無効です",
+        "formatError": "入力データが無効です",
+        "error": "エラー発生"
+    }
+}

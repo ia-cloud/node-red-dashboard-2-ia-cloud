@@ -1,0 +1,144 @@
+[
+    {
+        "id": "4e03280f406ce63a",
+        "type": "tab",
+        "label": "[iaCloud dashboard]テストフロー",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "036598591cc4459c",
+        "type": "inject",
+        "z": "4e03280f406ce63a",
+        "name": "アラーム&イベント",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Items\":[{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T15:28:33+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T15:28:33+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T15:32:23+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T15:32:23+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T15:40:54+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T15:40:54+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T15:46:45+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T15:46:45+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T16:02:46+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T16:02:46+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T16:02:56+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T16:02:56+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T16:37:04+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T16:37:04+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T17:13:12+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T17:13:12+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T17:40:04+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T17:40:04+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T17:53:06+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T17:53:06+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T17:53:11+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T17:53:11+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T17:55:31+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T17:55:31+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T18:18:03+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T18:18:03+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T18:31:05+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T18:31:05+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T19:05:48+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T19:05:48+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T19:57:08+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T19:57:08+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T20:53:58+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T20:53:58+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T21:32:42+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T21:32:42+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T22:09:10+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T22:09:10+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T22:15:20+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T22:15:20+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T22:50:53+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"on\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T22:50:53+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T22:50:58+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T22:50:58+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T23:14:45+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"set\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T23:14:45+09:00\"},{\"objectKey\":\"HandsonUser0.AnETest\",\"dataObject\":{\"timeStamp\":\"2019-11-17T23:18:06+09:00\",\"ObjectContent\":{\"contentType\":\"Alarm&Event\",\"contentData\":[{\"dataValue\":{\"AnEStatus\":\"reset\",\"AnEDescription\":\"S103のセンサ異常が発生しました。\",\"AnECode\":\"S103\"},\"commonName\":\"Alarm&Event\"},{\"dataValue\":{\"AnEStatus\":\"off\",\"AnEDescription\":\"ゾーン1での温度上昇異常\",\"AnECode\":\"ZT01\"},\"commonName\":\"Alarm&Event\"}]},\"objectKey\":\"HandsonUser0.AnETest\",\"objectType\":\"iaCloudObject\",\"objectDescription\":\"HandsonUser0アラームイベントデータのテストデータ\"},\"timestamp\":\"2019-11-17T23:18:06+09:00\"}]}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "6a7085d1d67d8462"
+            ]
+        ]
+    },
+    {
+        "id": "6a7085d1d67d8462",
+        "type": "ui-spreadsheet-2",
+        "z": "4e03280f406ce63a",
+        "confsel": "inchartSet",
+        "group": "421e6847544e1a18",
+        "name": "アラーム&イベント集計",
+        "label": "アラーム&イベント集計",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "contype": "Alarm&Event",
+        "item": "nodesc",
+        "aneStatus": "set",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "421e6847544e1a18",
+        "type": "ui-group",
+        "name": "グループ名",
+        "page": "c586f394b4d0e432",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c586f394b4d0e432",
+        "type": "ui-page",
+        "name": "ページ名",
+        "ui": "c6c0f0109feaeb3e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b969bf79218798f8",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c6c0f0109feaeb3e",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "b969bf79218798f8",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

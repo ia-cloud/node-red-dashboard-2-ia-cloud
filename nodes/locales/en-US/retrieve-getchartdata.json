@@ -1,0 +1,89 @@
+{
+    "retrievegetchartdata": {
+        "paletteLabel": "DynamoDB(chart)",
+        "label": {
+            "name": "name",
+            "ccs-connection-config": "CCS",
+            "tableName": "tableName",
+            "objectKey": "objectKey",
+            "series": "seriesSetting",
+            "period": "period",
+            "repeat": "repeat",
+            "aggregation": "aggregation",
+            "round": "round",
+            "limit": "maximum data number",
+            "sort": "sort"
+        },
+        "series": {
+            "number": "No.",
+            "dataName": "dataName",
+            "displayName": "displayName",
+            "add": "add",
+            "delete": "delete"
+        },
+        "period": {
+            "inDateset": "Enter from the dataset",
+            "inNodeSetting": "Enter in node settings"
+        },
+        "repeat": {
+            "check": "Repeat the process"
+        },
+        "aggregation": {
+            "aggregationCheck": "setting",
+            "aggreunit": "unit",
+            "max": "max",
+            "min": "min",
+            "average": "average",
+            "median": "median",
+            "count": "count",
+            "integration": "integration",
+            "first": "firstData",
+            "last": "lastData",
+            "year": "year",
+            "month": "month",
+            "week": "week",
+            "day": "day",
+            "hour": "hour",
+            "minute": "minute",
+            "second": "second"
+        },
+        "round": {
+            "noexe": "noexe",
+            "3": "Third decimal place",
+            "2": "Second decimal place",
+            "1": "First decimal place",
+            "0": "Integer",
+            "-1": "Ones place",
+            "-2": "Tens place",
+            "-3": "Hundreds place"
+        },
+        "sort": {
+            "asc": "ascending order",
+            "desc": "descending order"
+        }
+    },
+    "editor": {
+        "paletteLabel": "ia-cloud-V2 connection",
+        "name": "Node name",
+        "ccs-connection-config": "CCS connection config",
+        "details": "Advanced Settings",
+        "FDSKey": "Unique key of the data source",
+        "comment": "Data Source Description",
+        "cnctRetryInterval": "CCS connection retry interval",
+        "tappingInterval": "接続確認間隔",
+        "tip-cnctRetryInterval": "Connection check interval",
+        "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check.",
+        "outputV2Tips1": "The set values for the 0 chart node should be as follows",
+        "outputV2Tips2": "series: \"key:series\" x: \"key:x\" y: \"key:y"
+    },
+    "runtime": {
+        "connect": "connecting",
+        "complete": "completed",
+        "noData": "no data",
+        "noParam": "no series",
+        "faild": "data acquisition failure",
+        "periodError": "invalid period",
+        "error": "error",
+        "wait": "please wait until the connection is complete"
+    }
+}

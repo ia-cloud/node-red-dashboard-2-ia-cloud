@@ -1,0 +1,39 @@
+{
+    "table": {
+        "paletteLabel": "table",
+        "label": {
+            "group": "group",
+            "size": "size",
+            "label": "label",
+            "input": "input",
+            "contype": "contentType",
+            "statuscheck": "disypay Satus",
+            "name": "name"
+        },
+        "input": {
+            "retrieve": "retrieve",
+            "getchartdata": "retrieve-getChartdata",
+            "formatdata": "formatData",
+            "item": "item"
+        },
+        "contype":{
+            "ane": "Alarm&Event",
+            "iacd": "iaCloudData"
+        },
+        "ane": {
+            "set": "set",
+            "reset": "reset",
+            "on": "on",
+            "off": "off"
+        }
+    },
+    "runtime": {
+        "complete": "complete",
+        "connect": "processing...",
+        "noData": "no Data",
+        "noConType": "invalid contentType",
+        "noObjCnt": "invalid objectContent",
+        "formatError": "invaild inputData",
+        "error": "error"
+    }
+}

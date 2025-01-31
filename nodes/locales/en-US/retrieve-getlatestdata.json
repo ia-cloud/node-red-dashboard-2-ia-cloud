@@ -1,0 +1,47 @@
+{
+    "retrievegetlatestdata": {
+        "paletteLabel": "dataGetV2(latest)",
+        "label": {
+            "name": "name",
+            "ccs-connection-config": "CCS",
+            "tableName": "tableName",
+            "objectKey": "objectKey",
+            "series": "series",
+            "repeat": "repeat",
+            "round": "round",
+            "item": "outputFormat"
+        },
+        "series": {
+            "number": "No.",
+            "dataName": "dataName",
+            "displayName": "displayName",
+            "add": "add",
+            "delete": "delete"
+        },
+        "repeat": {
+            "check": "Repeat the process"
+        },
+        "round": {
+            "noexe": "noexe",
+            "3": "Third decimal place",
+            "2": "Second decimal place",
+            "1": "First decimal place",
+            "0": "Integer",
+            "-1": "Ones place",
+            "-2": "Tens place",
+            "-3": "Hundreds place"
+        },
+        "item": {
+            "graphData": "graphData",
+            "numericData": "num_dt Data"
+        }
+    },
+    "runtime": {
+        "connect": "connecting",
+        "complete": "completed",
+        "noData": "no data",
+        "noParam": "no series",
+        "faild": "data acquisition failure",
+        "error": "error"
+    }
+}

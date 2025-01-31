@@ -1,0 +1,117 @@
+<script type="text/javascript">
+
+    function mk_conf(NAME) {
+        var conf = {
+            category: 'iaCloud Visuals for Dashboard2',
+            color: 'rgb(119, 198, 204)',
+            defaults: {
+                confsel: { value: "inchartSet" },
+                group: { type: 'ui-group', required: true },
+                name: { value: '' },
+                label: { value: NAME },
+                order: { value: 0 },
+                width: {
+                    value: 0,
+                    validate: function (v) {
+                        var valid = true
+                        var width = v || 0;
+                        var currentGroup = $('#node-input-group').val() || this.group;
+                        var groupNode = RED.nodes.node(currentGroup);
+                        valid = !groupNode || +width <= +groupNode.width;
+                        $("#node-input-size").toggleClass("input-error", !valid);
+                        return valid;
+                    }
+                },
+                height: { value: 0 },
+                contype: {value: "Alarm&Event"},
+                item: {value: "nodesc"},
+                aneStatus: {value: "set"},
+                storeOutMessages: {value: true},
+                fwdInMessages: {value: true},
+                templateScope: {value: 'local'}
+            },
+            inputs: 1,
+            outputs: 0,
+            align: "right",
+            icon: "ia-cloud.png",
+            paletteLabel: NAME,
+            label: function () {
+                return this.name || this._("spreadsheet.paletteLabel");
+            },
+            labelStyle: function () {
+                return this.name ? "node_label_italic" : "";
+            },
+            paletteLabel: function () {
+                return this._("spreadsheet.paletteLabel") || "SpreadSheet";
+            },
+            oneditprepare: function () {
+                $("#node-input-size").elementSizer({
+                    width: "#node-input-width",
+                    height: "#node-input-height",
+                    group: "#node-input-group"
+                });
+            },
+        };
+        return conf;
+    }
+
+    RED.nodes.registerType('ui-spreadsheet-2', mk_conf('SpreadSheet'));
+</script>
+
+<script type="text/html" data-template-name="ui-spreadsheet-2">
+
+    <!-- グループ -->
+	<div class="form-row" id="template-row-group">
+        <label for="node-input-group"><i class="fa fa-table"></i> <span data-i18n="spreadsheet.label.group"></span></label>
+        <input type="text" id="node-input-group">
+    </div>
+
+    <!-- 表示サイズ -->
+    <div class="form-row" id="template-row-size">
+        <label><i class="fa fa-object-group"></i> <span data-i18n="spreadsheet.label.size"></span></label>
+        <input type="hidden" id="node-input-width">
+        <input type="hidden" id="node-input-height">
+        <button class="editor-button" id="node-input-size"></button>
+    </div>
+
+    <!-- ラベル -->
+    <div class="form-row">
+        <label for="node-input-label"><i class="fa fa-i-cursor"></i> <span data-i18n="spreadsheet.label.label"></span></label>
+        <input type="text" id="node-input-label">
+    </div>
+
+    <!-- contentType -->
+    <div class="form-row">
+        <label for="node-input-contype"><i class="fa fa-bars"></i> <span data-i18n="spreadsheet.label.contype"></span></label>
+        <select type="text" style="width:200px;" id="node-input-contype">
+            <option value="Alarm&Event" data-i18n="spreadsheet.contype.ane"></option>
+        </select>
+    </div>
+
+    <!-- 表示項目 -->
+    <div class="form-row">
+        <label for="node-input-item"><i class="fa fa-bars"></i> <span data-i18n="spreadsheet.label.item"></span></label>
+        <select type="text" style="width:200px;" id="node-input-item">
+            <option value="nodesc" data-i18n="spreadsheet.item.nodesc"></option>
+            <option value="no" data-i18n="spreadsheet.item.no"></option>
+            <option value="desc" data-i18n="spreadsheet.item.desc"></option>
+        </select>
+    </div>
+
+    <!-- カウント項目設定 -->
+    <div class="form-row">
+        <label for="node-input-aneStatus"><i class="fa fa-check"></i> <span data-i18n="spreadsheet.label.aneStatus"></span></label>
+        <select type="text" style="width:200px;" id="node-input-aneStatus">
+            <option value="set" data-i18n="spreadsheet.aneStatus.set"></option>
+            <option value="reset" data-i18n="spreadsheet.aneStatus.reset"></option>
+            <option value="on" data-i18n="spreadsheet.aneStatus.on"></option>
+            <option value="off" data-i18n="spreadsheet.aneStatus.off"></option>
+        </select>
+    </div>
+
+    <!-- ノード名 -->
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="spreadsheet.label.name"></span></label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>

@@ -1,0 +1,300 @@
+<script type="text/javascript">
+
+    function mk_conf(NAME) {
+        var conf = {
+            category: 'iaCloud Visuals for Dashboard2',
+            color: 'rgb(119, 198, 204)',
+            defaults: {
+                confsel: { value: "inchartSet" },
+                direction: { value: 'Vertical' },
+                truelist: { value: 'truelist' },
+                group: { type: 'ui-group', required: true },
+                label: { value: NAME },
+                name: { value: '' },
+                order: { value: 0 },
+                width: {
+                    value: 0,
+                    validate: function (v) {
+                        var valid = true
+                        var width = v || 0;
+                        var currentGroup = $('#node-input-group').val() || this.group;
+                        var groupNode = RED.nodes.node(currentGroup);
+                        valid = !groupNode || +width <= +groupNode.width;
+                        $("#node-input-size").toggleClass("input-error", !valid);
+                        return valid;
+                    }
+                },
+                height: { value: 0 },
+                item: { value: "" },
+                storeOutMessages: { value: true },
+                fwdInMessages: { value: true },
+                templateScope: { value: 'local' },
+                params: { value: [{}] },
+                configReady: { value: "", required: true },
+                sort: { value: "true" },
+                guide: { value: "display" }
+            },
+            inputs: 1,
+            outputs: 0,
+            align: "left",
+            icon: "ia-cloud.png",
+            paletteLabel: NAME,
+            label: function () {
+                return this.name || this._("uiLamps.paletteLabel");
+            },
+            labelStyle: function () {
+                return this.name ? "node_label_italic" : "";
+            },
+            paletteLabel: function () {
+                return this._("uiLamps.paletteLabel") || "Lamps";
+            },
+            oneditprepare: function () {
+
+
+                $('#node-input-size').elementSizer({
+                    width: '#node-input-width',
+                    height: '#node-input-height',
+                    group: '#node-input-group'
+                });
+
+                $('input[name="configSel"]:radio').change(function () {
+                    if ($("#node-input-configSel1").is(":checked")) {
+                        $('#node-input-confsel').val("inchartSet");
+                    } else if ($("#node-input-configSel2").is(":checked")) {
+                        $('#node-input-confsel').val("inlatestSet");
+                    } else {
+                        $('#node-input-confsel').val("formatSet");
+                    }
+                });
+
+                if ($("#node-input-confsel").val() == "inchartSet") {
+                    $('#node-input-configSel1').prop('checked', true);
+                } else if ($("#node-input-confsel").val() == "inlatestSet") {
+                    $('#node-input-configSel2').prop('checked', true);
+                } else {
+                    $('#node-input-configSel3').prop('checked', true);
+                }
+                $('input[name="configSel"]:radio').change();
+
+
+                var node = this;
+
+                const lblPhase = node._("uiLamps.label.phase");
+                const lblColor = node._("uiLamps.label.color");
+                const lblName = node._("uiLamps.label.name");
+                const lblSquare = node._("uiLamps.label.square");
+                const lblCircle = node._("uiLamps.label.circle");
+                const lblRed = node._("uiLamps.label.red");
+                const lblGreen = node._("uiLamps.label.green");
+                const lblBlue = node._("uiLamps.label.blue");
+                const lblYellow = node._("uiLamps.label.yellow");
+                const lblOrange = node._("uiLamps.label.orange");
+                const lblPurple = node._("uiLamps.label.purple");
+                const lblWhite = node._("uiLamps.label.white");
+
+                // editableList item のhtml要素
+                const paraForm1 = `
+                <label for="phase" style="width: 60px;"> <span style="margin-right: 5px;">${lblPhase}</span></label>
+                <select type="text" class="phase" id="phase" style="width: 85px;">
+                    <option selected="selected" value="Square">${lblSquare}</option>
+                    <option value="Circle">${lblCircle}</option>
+                </select>
+                <label for="color" style="width: 60px;"> <span style="margin-right: 5px;">${lblColor}</span></label>
+                <select type="text" class="color" id="color" style="width: 85px;">
+                    <option selected="selected" value="Red" >${lblRed}</option>
+                    <option value="Green">${lblGreen}</option>
+                    <option value="Blue">${lblBlue}</option>
+                    <option value="Yellow">${lblYellow}</option>
+                    <option value="Orange">${lblOrange}</option>
+                    <option value="Purple">${lblPurple}</option>
+                    <option value="White">${lblWhite}</option>
+                </select>`;
+                const paraForm2 = `
+                    <span style="margin-left:30px;">${lblName}:</span>
+                    <input type="text" class="name" style="width:150px; display:inline-block; text-align:left; margin-right:20px;">`;
+
+                // Define editableList.
+                $("#node-input-list-container").css('min-height', '150px').css('min-width', '350px').editableList({
+
+                    sortable: true,
+                    removable: true,
+                    height: 250,
+
+                    addItem: function (container, index, param) {
+
+                        var div1 = $('<div></div>').appendTo(container);
+                        var div2 = $('<div></div>', { style: "margin-top:8px;" }).appendTo(container);
+
+                        $('<span></span>', {
+                            class: "index",
+                            style: "display:inline-block;text-align:right; width:30px; padding-right:5px;"
+                        })
+                            .text((index + 1) + " :")
+                            .appendTo(div1);
+                        $(paraForm1).appendTo(div1);
+
+                        // 2nd row of parameter list
+                        $(paraForm2).appendTo(div2);
+
+                        // 追加ボタンが押されたら、paramは 空{} で呼ばれます。
+                        if (!param.hasOwnProperty("phase")) {
+                            param = {
+                                phase: "Square",
+                                color: "Red",
+                                name: ""
+                            }
+                        };
+                        // restore parameters
+                        div1.find(".phase").val(param.phase);
+                        div1.find(".color").val(param.color);
+                        div2.find(".name").val(param.name);
+                    },
+                    sortItems: function (items) {
+                        items.each(function (i, elm) {
+                            elm.find(".index").text((i + 1));
+                        });
+                    },
+                    removeItem: function (dItem) {
+                        var items = $('#node-input-list-container').editableList("items");
+                        items.each(function (i, elm) {
+                            elm.find(".index").text((i + 1));
+                        });
+                    },
+                });
+
+                for (var i = 0; i < node.params.length; i++) {
+                    var param = node.params[i];
+                    $("#node-input-list-container").editableList('addItem', param);
+                }
+
+            },
+            oneditsave: function () {
+
+                var node = this;
+                var configReady = "ready";
+                var items = $("#node-input-list-container").editableList('items');
+                // paramデータ設定を作成
+                node.params = [];
+                items.each(function (i, elm) {
+                    var param = {
+                        // reatore parameters
+                        phase: elm.find(".phase").val(),
+                        color: elm.find(".color").val(),
+                        name: elm.find(".name").val()
+                    }
+                    node.params.push(param);
+
+                    // 必須propertyが揃っているか？
+                    if (!param.phase) {
+                        configReady = "";
+                    }
+                    if (!param.color) {
+                        configReady = "";
+                    }
+                });
+
+                // データ設定が一つはある？
+                if (!node.params.length) {
+                    configReady = "";
+                }
+                // 設定完了フラグをセット
+                $("#node-input-configReady").val(configReady);
+            },
+            oneditresize: function (size) {
+                // エディタがリサイズされたら
+                var height = size.height;
+
+                // node name block height
+                height -= $("#name-block").outerHeight(true);
+
+                // editableList以外の行の高さを引く
+                var rows = $("#list-property>*:not(.node-input-list-container-row)");
+                for (var i = 0; i < rows.length; i++) {
+                    height -= $(rows[i]).outerHeight(true);
+                }
+                // editableListのマージンを引く
+                const editorRow = $("#list-property>div.node-input-list-container-row");
+                height -= (parseInt(editorRow.css("marginTop")) + parseInt(editorRow.css("marginBottom")));
+
+                // editableListの高さを設定。editableListが非表示の時は正しく動作しない。
+                $("#node-input-list-container").editableList('height', height);
+            }
+        }
+        return conf;
+    }
+
+    RED.nodes.registerType('ui-lamps-2', mk_conf('Lamps'));
+</script>
+
+<script type="text/html" data-template-name="ui-lamps-2">
+
+    <div id="list-property">
+
+        <!-- 隠しのNodeプロパティ -->
+        <div class="form-row" hidden>
+            <input type="text" id="node-input-configReady">
+        </div>
+
+        <!-- グループ -->
+        <div class="form-row" id="template-row-group">
+            <label for="node-input-group"><i class="fa fa-table"></i> <span data-i18n="uiLamps.label.group"></span></label>
+            <input type="text" id="node-input-group">
+        </div>
+
+    <!-- 表示サイズ -->
+    <div class="form-row" id="template-row-size">
+        <label><i class="fa fa-object-group"></i> <span data-i18n="uiLamps.label.size"></span></label>
+        <input type="hidden" id="node-input-width">
+        <input type="hidden" id="node-input-height">
+        <button class="editor-button" id="node-input-size"></button>
+    </div>
+
+    <!-- 向き -->
+    <div class="form-row">
+        <label for="node-input-direction"><i class="fa fa-list"></i> <span data-i18n="uiLamps.label.direction"></span></label>
+        <select type="text" id="node-input-direction" style="width: 100px;">
+            <option selected="selected" value="Vertical" data-i18n="uiLamps.label.vertical"></option>
+            <option value="Horizontal" data-i18n="uiLamps.label.horizontal"></option>
+        </select>
+    </div>
+
+    <!-- 入力値設定 -->
+    <label style="width: 100%;" for="node-input-setMode" ><i class="fa fa-list"></i> <span data-i18n="uiLamps.label.input"></span></label>
+    <div class="form-row">
+        <input type="text" style="display: none;" id="node-input-confsel" valie="inchartSet">
+        <input type="radio" style="display: inline-block; width: auto; vertical-align: top; margin-left: 30px;"
+            name="configSel" id="node-input-configSel1" value="inchartSet" checked="checked">
+        <label style="width: 40%;" for="node-input-configSel1"> <span data-i18n="uiLamps.label.getchartdata"></span></label>
+        <input type="radio" style="display: inline-block; width: auto; vertical-align: top;"
+            name="configSel" id="node-input-configSel2" value="inlatest">
+        <label style="width: 40%;" for="node-input-configSel2"> <span data-i18n="uiLamps.label.getlatestdata"></span></label>
+        <br>
+        <input type="radio" style="display: inline-block; width: auto; vertical-align: top; margin-left:30px;"
+            name="configSel" id="node-input-configSel3" value="formatSet">
+        <label style="width: 40%;" for="node-input-configSel3"> <span data-i18n="uiLamps.label.formatdata"></span></label>
+    </div>
+
+    <!-- 状態詳細設定 -->
+    <div id="list-property">
+        <div class="form-row">
+            <label for="node-input-series" style="width:200px; margin-left:8px"><span data-i18n="uiLamps.label.itemObject"></span><span style="color: #ff0000;">*</span></label>
+        </div>
+        <!-- param propertyの設定 -->
+        <div class="form-row node-input-list-container-row">
+            <ol id="node-input-list-container">
+            </ol>
+        </div>
+    </div>
+
+    <!-- 有効な値 -->
+    <div class="form-row">
+        <label for="node-input-truelist"><i class="fa fa-list"></i> <span data-i18n="uiLamps.label.truelist"></span></label>
+        <input type="text" id="node-input-truelist">
+    </div>
+
+    <!-- ノード名 -->
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>

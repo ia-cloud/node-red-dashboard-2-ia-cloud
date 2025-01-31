@@ -1,0 +1,36 @@
+{
+    "spreadsheet": {
+        "paletteLabel": "spreadSheet",
+        "label": {
+            "group": "group",
+            "size": "size",
+            "label": "label",
+            "contype": "contentType",
+            "item": "itemSetting",
+            "aneStatus": "status",
+            "name": "name"
+        },
+        "contype":{
+            "ane": "Alarm&Event"
+        },
+        "item": {
+            "nodesc":"A&E No，A&E Description",
+            "no":"A&E No",
+            "desc":"A&E Description"
+        },
+        "aneStatus": {
+            "set": "set",
+            "reset": "reset",
+            "on": "on",
+            "off": "off"
+        }
+    },
+    "runtime": {
+        "complete": "complete",
+        "connect": "processing...",
+        "noData": "no Data",
+        "noConType": "invalid contentType",
+        "noObjCnt": "invalid objectContent",
+        "error": "error"
+    }
+}

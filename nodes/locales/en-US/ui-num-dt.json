@@ -1,0 +1,25 @@
+{
+    "uiNumDt": {
+        "paletteLabel": "numDt",
+        "label": {
+            "group": "Group",
+            "size": "Size",
+            "datatype": "Datatype",
+            "number": "Number",
+            "datetime": "Datetime",
+            "label": "Label",
+            "delete": "Delete",
+            "numLabel": "Label",
+            "numDigits": "Digits",
+            "numUnits": "Units",
+            "dtLabel": "Label",
+            "on": "on",
+            "off": "off",
+            "dtFormat": "Format"
+        }
+    },
+    "runtime": {
+        "complete": "complete",
+        "connect": "processing..."
+    }
+}

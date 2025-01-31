@@ -1,0 +1,333 @@
+<script type="text/javascript">
+    RED.nodes.registerType('retrieve-getlatestdata', {
+        category: "iaCloud DB acs",
+        color: "#ffd700",
+        defaults: {
+            name: { value: "" },
+            ccsConnectionConfig: { value: '', type: 'ia-cloud-ccs-connection-config', required: true },
+            tableName: { value: "", required: true },
+            objectKey: { value: "", required: true },
+            // seriesObject:{value:"", required: true },
+            decimalPoint: { value: "noexe" },
+            item: { value: "graphData" },
+            repeatCheck: { value: "" },
+            repeat: { value: "1" },
+            params: { value: [{}] },
+            configReady: { value: "", required: true },
+            fdskey: { value: "com.ia-cloud.node-red.getdatanode", required: true },
+            cnctRetryInterval: { value: 60, validate: RED.validators.number() },
+            tappingInterval: { value: 24, validate: RED.validators.number() }
+        },
+        credentials: {
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "ia-cloud.png",
+        paletteLabel: 'retrieve-getlatestdata',
+        label: function () {
+            return this.name || this._("retrievegetlatestdata.paletteLabel");
+        },
+        labelStyle: function () {
+            return this.name ? "node_label_italic" : "";
+        },
+        paletteLabel: function () {
+            return this._("retrievegetlatestdata.paletteLabel") || "dynamoDB(latest)";
+        },
+        oneditprepare: function () {
+            // 繰り返し設定
+            $("#node-input-repeatCheck").change(function () {
+                if ($(this).is(":checked")) {
+                    $(".interval-row").show();
+                    $("#node-input-repeatCheck").prop("checked", true);
+                } else {
+                    $(".interval-row").hide();
+                    $("#node-input-repeatCheck").prop("checked", false);
+                }
+            });
+            $(".interval-time-count").spinner({
+                //max:60,
+                min: 1
+            });
+            $("#node-input-interval-units").change(function () {
+                var units = $("#node-input-interval-units option:selected").val();
+            });
+            var r = "s";
+            var c = this.repeat;
+            if (this.repeat % 60 === 0) { r = "m"; c = c / 60; }
+            if (this.repeat % 1440 === 0) { r = "h"; c = c / 60; }
+            $("#node-input-interval").val(c);
+            $("#node-input-interval-units").val(r);
+
+            $("#node-input-details").change(function () {
+                if ($(this).is(":checked")) {
+                    $(".node-input-details-row").show();
+                } else {
+                    $(".node-input-details-row").hide();
+                    $('#node-input-cnctRetryInterval').val(60);
+                    $('#node-input-tappingInterval').val(24);
+                }
+            });
+            if ($('#node-input-cnctRetryInterval').val() != 60
+                || $('#node-input-tappingInterval').val() != 24) {
+                $('#node-input-details').prop('checked', true);
+            } else {
+                $('#node-input-details').prop('checked', false);
+            }
+            $("#node-input-details").change();
+
+            var node = this;
+
+            const lbldataName = node._("retrievegetlatestdata.series.dataName");
+            const lbldisplayName = node._("retrievegetlatestdata.series.displayName");
+
+            // editableList item のhtml要素
+            // 1行目のobjectKey
+            const paraForm1 = `
+				<label style="width:70px; text-align: right;">${lbldataName}</label>
+				<input class="dataName" placeholder="${lbldataName}" type="text"
+                    style="width:100px; display:inline-block; text-align:left;">
+                <label style="width:60px; text-align: right;">${lbldisplayName}</label>
+                <input class="displayName" placeholder="${lbldisplayName}" type="text"
+                    style="width:120px; display:inline-block; text-align:left;">
+            `;
+
+            // Define editableList.
+            $("#node-input-list-container").css('min-height', '150px').css('min-width', '450px').editableList({
+
+                sortable: true,
+                removable: true,
+                height: 250,
+
+                addItem: function (container, index, param) {
+
+                    var div1 = $('<div></div>').appendTo(container);
+                    // var div2 = $('<div></div>',{style:"margin-top:8px;"}).appendTo(container);
+
+                    $('<span></span>', {
+                        class: "index",
+                        style: "display:inline-block;text-align:right; width:30px; padding-right:5px;"
+                    })
+                        .text((index + 1) + " :")
+                        .appendTo(div1);
+                    $(paraForm1).appendTo(div1);
+
+                    // 2nd row of parameter list
+                    // $(paraForm2).appendTo(div2);
+
+                    // 追加ボタンが押されたら、paramは 空{} で呼ばれます。
+                    if (!param.hasOwnProperty("dataName")) {
+                        param = {
+                            dataName: "",
+                            displayName: "",
+                        }
+                    };
+                    // restore parameters
+                    div1.find(".dataName").val(param.dataName);
+                    div1.find(".displayName").val(param.displayName);
+                },
+                sortItems: function (items) {
+                    items.each(function (i, elm) {
+                        elm.find(".index").text((i + 1));
+                    });
+                },
+                removeItem: function (dItem) {
+                    var items = $('#node-input-list-container').editableList("items");
+                    items.each(function (i, elm) {
+                        elm.find(".index").text((i + 1));
+                    });
+                },
+            });
+
+            for (var i = 0; i < node.params.length; i++) {
+                var param = node.params[i];
+                $("#node-input-list-container").editableList('addItem', param);
+            }
+        },
+        oneditsave: function () {
+            // 繰り返し設定
+            var repeat = "";
+            var count = $("#node-input-interval").val();
+            var units = $("#node-input-interval-units").val();
+            if (units == "s") {
+                repeat = count;
+            } else {
+                if (units == "m") {
+                    repeat = count * 60;
+                } else if (units == "h") {
+                    repeat = count * 60 * 60;
+                }
+            }
+            $("#node-input-repeat").val(repeat);
+
+
+            var node = this;
+            var configReady = "ready";
+            var items = $("#node-input-list-container").editableList('items');
+            // paramデータ設定を作成
+            node.params = [];
+            items.each(function (i, elm) {
+                var param = {
+                    // reatore parameters
+                    dataName: elm.find(".dataName").val(),
+                    displayName: elm.find(".displayName").val()
+                }
+                node.params.push(param);
+
+                // 必須propertyが揃っているか？
+                if (!param.dataName) {
+                    configReady = "";
+                }
+            });
+
+            // データ設定が一つはある？
+            if (!node.params.length) {
+                configReady = "";
+            }
+
+            // 設定完了フラグをセット
+            $("#node-input-configReady").val(configReady);
+        }
+
+    });
+</script>
+
+<!-- ノード編集画面テンプレート -->
+<script type="text/html" data-template-name="retrieve-getlatestdata">
+
+    <!-- 隠しのNodeプロパティ -->
+<div class="form-row" hidden>
+    <input type="text" id="node-input-configReady">
+</div>
+
+<!-- CCS接続情報 -->
+<div class="form-row">
+    <label for="node-input-ccsConnectionConfig"><i class="fa fa-link"></i> <span
+            data-i18n="retrievegetlatestdata.label.ccs-connection-config"></label>
+    <input type="text" id="node-input-ccsConnectionConfig"
+        data-i18n="[placeholder]retrievegetlatestdata.label.ccs-connection-config">
+</div>
+
+<hr />
+
+<!-- テーブル名 -->
+<div class="form-row">
+    <label for="node-input-tableName"><i class="fa fa-tag"></i> <span
+            data-i18n="retrievegetlatestdata.label.tableName"></span><span style="color: #ff0000;">*</span></label>
+    <input type="text" id="node-input-tableName" placeholder="tableName">
+</div>
+
+<!-- オブジェクトキー -->
+<div class="form-row">
+    <label for="node-input-objectKey"><i class="fa fa-key"></i> <span
+            data-i18n="retrievegetlatestdata.label.objectKey"></span><span style="color: #ff0000;">*</span></label>
+    <input type="text" id="node-input-objectKey" placeholder="objectKey">
+</div>
+
+<!-- 項目設定 -->
+<div id="list-property">
+    <div class="form-row">
+        <label for="node-input-series" style="width:200px; margin-left:8px"><span
+                data-i18n="retrievegetlatestdata.label.series"></span><span style="color: #ff0000;">*</span></label>
+    </div>
+    <!-- param propertyの設定 -->
+    <div class="form-row node-input-list-container-row">
+        <ol id="node-input-list-container">
+        </ol>
+    </div>
+</div>
+
+<!-- 繰り返しON/OFF -->
+<div class="form-row">
+    <label for="node-input-interval"><i class="fa fa-repeat"></i> <span
+            data-i18n="retrievegetlatestdata.label.repeat"></span></label>
+    <input type="checkbox" id="node-input-repeatCheck"
+        style="display: inline-block; width: 20px; vertical-align: middle;">
+    <label for="node-input-repeatCheck" style="width: 40%; vertical-align: middle;"><span
+            data-i18n="retrievegetlatestdata.repeat.check"></label>
+</div>
+
+<!-- 繰り返し秒数 -->
+<div class="form-row interval-row hide" id="dynamodb-interval-row" style="margin-left: 105px">
+    <input id="node-input-interval" value="1" class="interval-time-count">
+    <select style="width: 150px" id="node-input-interval-units">
+        <option value="s" data-i18n="inject.seconds">Seconds</option>
+        <option value="m" data-i18n="inject.minutes">Minutes</option>
+        <option value="h" data-i18n="inject.hours">Hours</option>
+    </select><br />
+</div>
+<input type="hidden" id="node-input-repeat">
+
+<!-- 表示桁数 -->
+<div class="form-row">
+    <label for="node-input-decimalPoint"><i class="fa fa-sliders"></i> <span
+            data-i18n="retrievegetlatestdata.label.round"></span></label>
+    <select type="text" id="node-input-decimalPoint" style="width:120px;">
+        <option value="noexe" data-i18n="retrievegetlatestdata.round.noexe"></option>
+        <option value="3" data-i18n="retrievegetlatestdata.round.3"></option>
+        <option value="2" data-i18n="retrievegetlatestdata.round.2"></option>
+        <option value="1" data-i18n="retrievegetlatestdata.round.1"></option>
+        <option value="0" data-i18n="retrievegetlatestdata.round.0"></option>
+        <option value="-1" data-i18n="retrievegetlatestdata.round.-1"></option>
+        <option value="-2" data-i18n="retrievegetlatestdata.round.-2"></option>
+        <option value="-3" data-i18n="retrievegetlatestdata.round.-3"></option>
+    </select>
+</div>
+
+<!-- 表示項目 -->
+<div class="form-row">
+    <label for="node-input-item"><i class="fa fa-bars"></i> <span
+            data-i18n="retrievegetlatestdata.label.item"></span></label>
+    <select type="text" style="width:250px;" id="node-input-item">
+        <option value="graphData" data-i18n="retrievegetlatestdata.item.graphData"></option>
+        <option value="numericData" data-i18n="retrievegetlatestdata.item.numericData"></option>
+    </select>
+</div>
+
+<div class="form-row">
+    <input type="checkbox" id="node-input-details" style="display: inline-block; width: auto; vertical-align: top;">
+    <label for="node-input-details" style="width: 70%;"><span data-i18n="editor.details"></span></label>
+    <div style="margin-left: 20px" class="node-input-details-row hide">
+        <div class="form-row">
+            <label for="node-input-fdsKey"><span data-i18n="editor.fdsKey"></span></label>
+            <input type="text" id="node-input-fdskey">
+        </div>
+        <div class="form-tips" id="tip-fdskey"><span data-i18n="editor.tip-fdskey"></span></div>
+        <div class="form-row">
+            <label for="node-input-cnctRetryInterval"><span data-i18n="editor.cnctRetryInterval"></span></label>
+            <input type="number" min="0" id="node-input-cnctRetryInterval">
+        </div>
+        <div class="form-tips" id="tip-cnctRetryInterval"><span data-i18n="editor.tip-cnctRetryInterval"></span></div>
+        <div class="form-row">
+            <label for="node-input-tappingInterval"><span data-i18n="editor.tappingInterval"></span></label>
+            <input type="number" min="0" id="node-input-tappingInterval">
+        </div>
+        <div class="form-tips" id="tip-tappingInterval"><span data-i18n="editor.tip-tappingInterval"></span></div>
+    </div>
+</div>
+
+<!-- ノード名 -->
+<hr />
+<div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span
+            data-i18n="retrievegetlatestdata.label.name"></span></label>
+    <input type="text" id="node-input-name" placeholder="Name">
+</div>
+</script>
+
+<style>
+    .interval-row {}
+
+    .interval-time-row select {
+        margin: 3px 0;
+    }
+
+    .interval-row>.ui-spinner {
+        height: 28px;
+        margin: 3px 0;
+        border-color: rgb(204, 204, 204);
+    }
+
+    .interval-time-count {
+        width: 40px !important;
+    }
+</style>

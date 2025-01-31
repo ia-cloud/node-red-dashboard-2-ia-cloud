@@ -1,0 +1,25 @@
+{
+    "uiNumDt": {
+        "paletteLabel": "数値変換",
+        "label": {
+            "group": "グループ",
+            "size": "サイズ",
+            "datatype": "データ型",
+            "number": "数値",
+            "datetime": "日時",
+            "label": "ラベル",
+            "delete": "削除",
+            "numLabel": "ラベル",
+            "numDigits": "有効桁数",
+            "numUnits": "単位",
+            "dtLabel": "ラベル",
+            "on": "表示",
+            "off": "非表示",
+            "dtFormat": "表示形式"
+        }
+    },
+    "runtime": {
+        "complete": "表示完了",
+        "connect": "処理中"
+    }
+}
