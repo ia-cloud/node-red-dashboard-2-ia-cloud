@@ -13,7 +13,7 @@ dashboard-2 - ui-tableノード
 
 このノードを利用する際には、ノード前にクエリを作成し
 プロパティ内で入力値に設定したものに対応した入力パラメータを入力します。
-「ノード：[retrieve-iacloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-iacloud)」と「ノード：[retrieve-getChartdata](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata)」からの出力を直接本ノードに入力して使用することも可能です。
+「ノード：[retrieve](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve.md)」と「ノード：[retrieve-getchartdata](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve-getchartdata.md)」からの出力を直接本ノードに入力して使用することも可能です。
 
 - ### retrieve
 
@@ -149,9 +149,9 @@ dashboard-2 - ui-tableノード
             ]
           }
 
-- ### retrieve-getChartdata
+- ### retrieve-getchartdata
 
-  retrieve-getChartdata(出力形式=「Node-RED Dashboard2.0」) からの出力を入力する場合は、入力値で「retrieve-getChartdata」を指定します。
+  retrieve-getchartdata(出力形式=「Node-RED Dashboard2.0」) からの出力を入力する場合は、入力値で「retrieve-getchartdata」を指定します。
   以下に例を示します。
 
         [
@@ -235,7 +235,7 @@ dashboard-2 - ui-tableノード
 
   入力するデータの種類を設定します。
   　・retrieve
-  　・retrieve-getChartdata
+  　・retrieve-getchartdata
   　・フォーマットデータ
 
 - ### 集計データタイプ

@@ -40,7 +40,7 @@ retrieve-getchartdataノード
 
 - ### 期間
 
-  「ノード：[ui-dateset-2-iacloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/ui-dateset)」からの入力により期間設定を行いたい場合は、「dateasetからの入力を許可する」を選択します。
+  「ノード：[ui-dateset-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve-getchartdata.md)」からの入力により期間設定を行いたい場合は、「dateasetからの入力を許可する」を選択します。
   本ノード内で期間設定を行いたい場合は、手動設定を選択して取得開始日時と終了日時を記述してください。
   未入力の場合、全期間が検索対象になります。
 

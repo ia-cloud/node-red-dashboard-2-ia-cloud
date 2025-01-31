@@ -11,7 +11,7 @@ ia-cloudオブジェクトデータの集計結果をテーブル(表)を表示�
 
 ## 入力メッセージ
 
-この関数を利用する際には、「ノード：[retrieve-dynamodb-iacloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-dynamodb-iacloud)」から出力されたia-cloudオブジェクトデータを直接本ノードに入力します。
+この関数を利用する際には、「ノード：[retrieve](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve.md)」から出力されたia-cloudオブジェクトデータを直接本ノードに入力します。
 以下に入力データの例を示します。
 
         {

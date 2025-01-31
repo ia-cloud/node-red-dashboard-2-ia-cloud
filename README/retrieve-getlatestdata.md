@@ -6,7 +6,7 @@ retrieve-getlatestdataノード
 
 ## 機能概要
 
-このノードは指定したDynamoDBから直近1件分のiacloudオブジェクトを取得し、node-red ダッシュボード：[node-red-dashboard](https://github.com/node-red/node-red-dashboard)、iacloudダッシュボードノード：[node-red-dashboard-2-ia-cloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud)の各ウィジェットへ入力する際の形へ変換することができます。
+このノードは指定したDynamoDBから直近1件分のiacloudオブジェクトを取得し、node-red ダッシュボード：[node-red-dashboard](https://github.com/node-red/node-red-dashboard)、iacloudダッシュボード2ノード：[node-red-dashboard-2-ia-cloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud)の各ウィジェットへ入力する際の形へ変換することができます。
 
 対象ウィジェットは以下の通りです。
 
@@ -22,10 +22,10 @@ retrieve-getlatestdataノード
 
 ### (2) iacloudダッシュボードノード-2：[node-red-dashboard-2-ia-cloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud)
 
-- ランプ([ui-lamps-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/ui-lamps))
-- 数値変換([ui-num-dt-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/ui-num_dt))
+- ランプ([ui-lamps-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/ui-lamps.md))
+- 数値変換([ui-num-dt-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/ui-num-dt.md))
 
-※チャートへの時系列データの入力は「ノード：[node-red-contrib-getchartdata-iacloud](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/getchartdata-iacloud)」を使用してください。
+※チャートへの時系列データの入力は「ノード：[retrieve-getchartdata](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve-getchartdata.md)」を使用してください。
 
 本ノードはAWS-SDK DynamoDB関数をラップしており、DynamoDBからデータを取得する処理にはQueryを使用しています。
 より詳細に知るには、[APIドキュメント](https://docs.aws.amazon.com/sdkforruby/api/Aws/DynamoDB/Client.html)を参照してください。
@@ -86,7 +86,7 @@ retrieve-getlatestdataノード
 
 ### (1) ランプゲージ
 
-機能概要 (1)dashboard にて記載した全ノード、(2)iacloudダッシュボードノードに記載したランプノード([ui-lamps-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/ui-lamps)) への入力メッセージを出力します。
+機能概要 (1)dashboard にて記載した全ノード、(2)iacloudダッシュボードノードに記載したランプノード([ui-lamps-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/ui-lamps.md)) への入力メッセージを出力します。
 以下に例を示します。
 
     [
@@ -95,7 +95,7 @@ retrieve-getlatestdataノード
 
 ### (2) 数値データ
 
-機能概要 (2)iacloudダッシュボードノードに記載した数値変換ノード([ui-num-dt-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/ui-num-dt))への入力メッセージを出力します。
+機能概要 (2)iacloudダッシュボードノードに記載した数値変換ノード([ui-num-dt-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/ui-num-dt.md))への入力メッセージを出力します。
 以下に例を示します。
 
     [
