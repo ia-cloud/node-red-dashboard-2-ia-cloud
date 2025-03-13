@@ -1,7 +1,7 @@
 
 module.exports = function (RED) {
 
-	const MAX_LIMIT = 10000;			// 最大取得件数
+	const MAX_LIMIT = 1000;			// 最大取得件数
 
 	/* 使用モジュール定義 */
 	var retrieve = require("../dynamodbConnection/retrieve")(RED);
