@@ -7,18 +7,11 @@ module.exports = function (RED) {
 	var retrieve = require("../dynamodbConnection/retrieve")(RED);
 	var moment = require("moment");
 
-	const {iaCloudConnection} = require("@ia-cloud/node-red-contrib-ia-cloud-common-nodes");
-	const CNCT_RETRY_INIT = 1 * 60 * 1000;      //リトライ間隔の初期値1分
-
-	let cnctRtryId;     // connect retry timer ID
-	let cnctRtryFlag = true;
-	let tappTimerId;    // tapping CCS (getStatus()) interval timer ID
-
 	// ダミーデータ
 	var dummy = { Items: [] };
 
-	// 接続情報を保持するオブジェクト
-	let info;
+	// time interval for the connection status check
+	const STATUSINTERVAL = 10 * 1000;
 
 	function retrieveNode(config) {
 
@@ -43,24 +36,9 @@ module.exports = function (RED) {
 			password: password,
 		};
 
-		info = {
-			status: "Disconnected",
-			serviceID: "",
-			version: ccsConnectionConfigNode.version,
-			url: url,
-			userID: ccsConnectionConfigNode.credentials.userId,
-			Authorization: "Basic " + Buffer.from(username + ":" + password).toString("base64"),
-			FDSKey: String(config.fdskey),
-			FDSType: "iaCloudFDS",
-			cnctTs: "",
-			lastReqTs: "",
-			comment: String(config.comment),
-			cnctRetryInterval: config.cnctRetryInterval * 60 * 1000,
-			tappingInterval: config.tappingInterval * 60 * 60 * 1000,
-
-			proxy: ccsConnectionConfigNode.proxy,
-			reqTimeout: 12000
-		};
+		// get the connection information
+        let gContext = this.context().global;
+        let info = gContext.get(ccsConnectionConfigNode.cnctInfoName);
 
 		// environmental proxy setting
         if (!info.proxy) {
@@ -107,8 +85,6 @@ module.exports = function (RED) {
 		let fContext = this.context().flow;
 		fContext.set(cnctInfoName, info);
 
-		const iaC = new iaCloudConnection(fContext, cnctInfoName, auth);
-
 		// 検索条件の取得
 		this.name = config.name;							// ノード名
 		this.operation = config.operation;					// 処理名
@@ -142,77 +118,12 @@ module.exports = function (RED) {
 
 		var resultList;										// 取得結果格納用配列
 
-		// connect リクエスト
-		//connect request を送出（接続状態にないときは最大cnctRetryIntervalで繰り返し）
-
-		let rInt = CNCT_RETRY_INIT;   //リトライ間隔の初期値
-		// connectリクエストのトライループ
-		(async function cnctTry() {
-
-			//非接続状態なら接続トライ
-			if (info.status === "Disconnected") {
-
-				// node status をconnecting に
-				node.status({ fill: "blue", shape: "dot", text: "runtime.connecting" });
-
-				// nodeの出力メッセージ（CCS接続状態）
-				let msg = {};
-				let res;
-
-				// connect リクエスト
-				try {
-					res = await iaC.connect(auth);
-					node.status({ fill: "green", shape: "dot", text: "runtime.connected" });
-
-				} catch (error) {
-					node.status({ fill: "yellow", shape: "ring", text: error.message });
-					res = error.message;
-
-					//retryの設定。倍々で間隔を伸ばし最大はcnctRetryInterval、
-					if (info.cnctRetryInterval !== 0) {
-						rInt *= 2;
-						rInt = (rInt < info.cnctRetryInterval) ? rInt : info.cnctRetryInterval;
-					}
-				} finally {
-					console.log(info);
-					return res;
-				}
-
-			} else {
-				rInt = CNCT_RETRY_INIT;
-			}
-			// connect retry loop
-			if (info.cnctRetryInterval !== 0 && cnctRtryFlag)
-				cnctRtryId = setTimeout(cnctTry, rInt);
-
-		}())
-
-		if (node.repeatCheck) {
-			tappTimerId = setInterval(function () {
-
-				//非接続状態の時は、何もしない。
-				if (info.status === "Disconnected") return;
-
-				// node status をconnecting に
-				node.status({ fill: "blue", shape: "dot", text: "runtime.connecting" });
-				info.status = "requesting";
-				let msg = {};
-				(async () => {
-					// getStatus リクエスト
-					try {
-						let res = await iaC.getStatus();
-						node.status({ fill: "green", shape: "dot", text: "runtime.connected" });
-						msg.payload = res;
-					} catch (error) {
-						node.status({ fill: "yellow", shape: "ring", text: error.message });
-						msg.payload = error.message;
-					} finally {
-						node.send(msg);
-					}
-				})();
-			}, info.tappingInterval);
-		}
-
+		let statusTimerId = setInterval(function(){
+            if (info.status === "Disconnected")
+                node.status({fill:"blue", shape:"dot", text:"runtime.disconnected"});
+            else if (info.status === "Connected")
+                node.status({fill:"green", shape:"dot", text:"runtime.connected"});
+        }, STATUSINTERVAL) ;
 
 		// sendメッセージ関数作成
 		node.sendMsg = function (data) {
@@ -247,6 +158,9 @@ module.exports = function (RED) {
 
 		// 処理終了時にはintervalをクリアする
 		this.on('close', function () {
+			if (statusTimerId != null) {
+				clearInterval(statusTimerId);
+			}
 			if (interval != null) {
 				clearInterval(interval);
 			}
@@ -322,7 +236,7 @@ module.exports = function (RED) {
 		async function iaCloudRetrieveArrayRequest(req) {
 			return new Promise(async (resolve, reject) => {
 				try {
-					resolve(await iaC.retrieveArray(req));
+					resolve(await ccsConnectionConfigNode.iaCloudCommand("retrieveArray", req));
 				}
 				catch (e) {
 					reject(e);

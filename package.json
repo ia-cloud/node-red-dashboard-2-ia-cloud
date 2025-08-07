@@ -44,7 +44,7 @@
         "to-title-case": "^1.0.0",
         "vue": "^3.3.8",
         "vuex": "^4.1.0",
-        "@ia-cloud/node-red-contrib-ia-cloud-common-nodes": "^0.1.0",
+        "@ia-cloud/node-red-contrib-ia-cloud-common-nodes": "^0.2.1",
         "json2csv": "4.3.5",
         "node-red-dashboard": "2.17.0",
         "serve-static": "~1.13.2",
