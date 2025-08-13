@@ -67,7 +67,8 @@
         "tappingInterval": "接続確認間隔",
         "tip-fdskey": "独自のFDSKeyを指定する場合に変更してください",
         "tip-cnctRetryInterval": "CCSへの接続が切断された時のリトライ間隔。分単位で設定。0はリトライを行わない",
-        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない"
+        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない",
+        "tip-deprecated":"このノードの使用は非推奨です。古いアプリケーションフローの維持のため残してあります。新しいノード[ia-cloud接続II]とその設定ノードを使用してください。"
     },
     "runtime": {
         "connect": "接続中",

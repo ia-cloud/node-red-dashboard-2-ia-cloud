@@ -1,10 +1,10 @@
 <script type="text/javascript">
-	RED.nodes.registerType('retrieve', {
+	RED.nodes.registerType('retrieveII', {
 		category: 'iaCloud DB acs',
 		color: "#ffd700",
 		defaults: {
 			name: { value: "" },
-			ccsConnectionConfig: { value: '', type: 'ia-cloud-ccs-connection-config', required: true },
+			ccsConnectionConfig: { value: '', type: 'ia-cloud-ccs-connection-configII', required: true },
 			tableName: { value: "", required: true },
 			operation: { value: "Query" },
 			objectKey: { value: "", required: true },
@@ -135,10 +135,7 @@
 </script>
 
 <!-- ノード編集画面テンプレート -->
-<script type="text/html" data-template-name="retrieve">
-
-<div class="form-tips" id="tip-deprecated"><span data-i18n="editor.tip-deprecated"></span></div>
-<hr>
+<script type="text/html" data-template-name="retrieveII">
 
 <!--	<style scoped>
 				.hiddenAttrs {display:none;}
@@ -148,9 +145,9 @@
 <!-- CCS接続情報 -->
 <div class="form-row">
 	<label for="node-input-ccsConnectionConfig"><i class="fa fa-link"></i> <span
-			data-i18n="retrieve.label.ccs-connection-config"></label>
+			data-i18n="retrieve.label.ccs-connection-configII"></label>
 	<input type="text" id="node-input-ccsConnectionConfig"
-		data-i18n="[placeholder]retrieve.label.ccs-connection-config">
+		data-i18n="[placeholder]retrieve.label.ccs-connection-configII">
 </div>
 
 <hr />
