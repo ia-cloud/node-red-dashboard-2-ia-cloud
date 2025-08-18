@@ -1,6 +1,6 @@
 {
     "name": "@ia-cloud/node-red-dashboard-2-ia-cloud",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "ia-cloud Node-RED nodes",
     "keywords": [
         "node-red",
