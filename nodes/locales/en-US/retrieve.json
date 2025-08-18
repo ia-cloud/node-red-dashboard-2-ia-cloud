@@ -1,7 +1,7 @@
 {
     "retrieve": {
+        "paletteLabel": "Data Get V2 (Normal) ",
         "label": {
-            "paletteLabel": "Data Get V2 (Normal) ",
             "name": "name",
             "ccs-connection-config": "CCS",
             "tableName": "tableName",
@@ -21,7 +21,7 @@
             "PutItem": "PutItem"
         },
         "period": {
-            "inDateset": "Enter from the dataset",
+            "inDateset": "Enter from the dateset",
             "inNodeSetting": "Enter in node settings"
         },
         "repeat": {
@@ -66,7 +66,7 @@
         "name": "Node name",
         "ccs-connection-config": "CCS",
         "details": "use details",
-        "FDSKey": "Unique Key of the data source",
+        "fdsKey": "Unique Key of the data source",
         "comment": "Discription of the data source",
         "cnctRetryInterval": "CCS Retry Interval",
         "tappingInterval": "CCS Tapping Interval",

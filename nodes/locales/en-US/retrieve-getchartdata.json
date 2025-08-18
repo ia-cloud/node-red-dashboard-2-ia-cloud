@@ -22,7 +22,7 @@
             "delete": "delete"
         },
         "period": {
-            "inDateset": "Enter from the dataset",
+            "inDateset": "Enter from the dateset",
             "inNodeSetting": "Enter in node settings"
         },
         "repeat": {
@@ -67,7 +67,7 @@
         "name": "Node name",
         "ccs-connection-config": "CCS connection config",
         "details": "Advanced Settings",
-        "FDSKey": "Unique key of the data source",
+        "fdsKey": "Unique key of the data source",
         "comment": "Data Source Description",
         "cnctRetryInterval": "CCS connection retry interval",
         "tappingInterval": "接続確認間隔",
