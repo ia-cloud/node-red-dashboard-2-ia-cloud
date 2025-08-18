@@ -1,25 +1,24 @@
 {
-    "retrievegetchartdata": {
-        "paletteLabel": "DynamoDB(chart)",
+    "retrieve": {
+        "paletteLabel": "Data Get V2 (Normal)II",
         "label": {
             "name": "name",
-            "ccs-connection-config": "CCS",
+            "ccs-connection-configII": "CCS",
             "tableName": "tableName",
+            "operation": "operation",
             "objectKey": "objectKey",
-            "series": "seriesSetting",
             "period": "period",
             "repeat": "repeat",
             "aggregation": "aggregation",
             "round": "round",
             "limit": "maximum data number",
-            "sort": "sort"
+            "sort": "sort",
+            "item": "item"
         },
-        "series": {
-            "number": "No.",
-            "dataName": "dataName",
-            "displayName": "displayName",
-            "add": "add",
-            "delete": "delete"
+        "operation": {
+            "Query": "Query",
+            "Scan": "Scan",
+            "PutItem": "PutItem"
         },
         "period": {
             "inDateset": "Enter from the dateset",
@@ -63,29 +62,32 @@
         }
     },
     "editor": {
-        "paletteLabel": "ia-cloud-V2 connection",
+        "paletteLabel": "ia-cloud connectII",
         "name": "Node name",
-        "ccs-connection-config": "CCS connection config",
-        "details": "Advanced Settings",
-        "fdsKey": "Unique key of the data source",
-        "comment": "Data Source Description",
-        "cnctRetryInterval": "CCS connection retry interval",
+        "ccs-connection-configII": "CCS",
+        "details": "use details",
+        "fdsKey": "Unique Key of the data source",
+        "comment": "Discription of the data source",
+        "cnctRetryInterval": "CCS Retry Interval",
         "tappingInterval": "CCS Tapping Interval",
         "tip-fdskey": "Change this if you want to specify your own FDSKey.",
         "tip-cnctRetryInterval": "Retry interval in minutes for CCS connection error.Use 0 for no-retry.",
-        "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check.",
-        "tip-deprecated":"This node is deprecated and is kept to maintain the old application flow. Please use the new node [DynamoDB(chart)II] and its configuration node.",
-        "outputV2Tips1": "The set values for the 0 chart node should be as follows",
-        "outputV2Tips2": "series: \"key:series\" x: \"key:x\" y: \"key:y"
+        "tip-tappingInterval": "Tapping CCS interval in hours to check connection using getStatus request.Use 0 for no-retry."
     },
     "runtime": {
         "connect": "connecting",
         "complete": "completed",
         "noData": "no data",
-        "noParam": "no series",
         "faild": "data acquisition failure",
         "periodError": "invalid period",
+        "connected": "connected",
+        "disconnected": "disconnected",
+        "connecting": "connecting...",
+        "requesting": "requesting...",
+        "request-done": "request-done",
         "error": "error",
-        "wait": "please wait until the connection is complete"
+        "no-response": "CCS did not respond",
+        "bad-response": "CCS bad response",
+        "json-error": "CCS bad JSON message"
     }
 }

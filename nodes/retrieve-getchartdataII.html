@@ -1,10 +1,10 @@
 <script type="text/javascript">
-	RED.nodes.registerType('retrieve-getchartdata', {
+	RED.nodes.registerType('retrieve-getchartdataII', {
 		category: "iaCloud DB acs",
 		color: "#ffd700",
 		defaults: {
 			name: { value: "" },
-			ccsConnectionConfig: { value: '', type: 'ia-cloud-ccs-connection-config', required: true },
+			ccsConnectionConfig: { value: '', type: 'ia-cloud-ccs-connection-configII', required: true },
 			tableName: { value: "", required: true },
 			objectKey: { value: "", required: true },
 			dateCheck: { value: "inDateset" },
@@ -234,10 +234,7 @@
 </script>
 
 <!-- ノード編集画面テンプレート -->
-<script type="text/html" data-template-name="retrieve-getchartdata">
-
-<div class="form-tips" id="tip-deprecated"><span data-i18n="editor.tip-deprecated"></span></div>
-<hr>
+<script type="text/html" data-template-name="retrieve-getchartdataII">
 
 	<!-- 隠しのNodeプロパティ -->
 <div class="form-row" hidden>
@@ -247,9 +244,9 @@
 <!-- CCS接続情報 -->
 <div class="form-row">
 	<label for="node-input-ccsConnectionConfig"><i class="fa fa-link"></i> <span
-			data-i18n="retrievegetchartdata.label.ccs-connection-config" /></label>
+			data-i18n="retrievegetchartdata.label.ccs-connection-configII" /></label>
 	<input type="text" id="node-input-ccsConnectionConfig"
-		data-i18n="[placeholder]retrievegetchartdata.label.ccs-connection-config">
+		data-i18n="[placeholder]retrievegetchartdata.label.ccs-connection-configII">
 </div>
 
 <hr />

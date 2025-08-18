@@ -1,9 +1,9 @@
 {
     "retrievegetlatestdata": {
-        "paletteLabel": "dataGetV2(latest)",
+        "paletteLabel": "dataGetV2(latest)II",
         "label": {
             "name": "name",
-            "ccs-connection-config": "CCS",
+            "ccs-connection-configII": "CCS",
             "tableName": "tableName",
             "objectKey": "objectKey",
             "series": "series",
@@ -40,19 +40,20 @@
         "details": "Advanced Settings",
         "fdsKey": "Unique key of the data source",
         "cnctRetryInterval": "CCS connection retry interval",
-        "tappingInterval": "CCS Tapping Interval",
+        "tappingInterval": "connection check interval",
         "tip-fdskey": "Change this if you want to specify your own FDSKey.",
         "tip-cnctRetryInterval": "Retry interval in minutes for CCS connection error.Use 0 for no-retry.",
-        "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check.",
-        "tip-deprecated":"This node is deprecated and is kept to maintain the old application flow. Please use the new node [dataGetV2(latest)II] and its configuration node."
+        "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check."
     },
-
     "runtime": {
         "connect": "connecting",
         "complete": "completed",
         "noData": "no data",
         "noParam": "no series",
         "faild": "data acquisition failure",
-        "error": "error"
+        "connected": "connected",
+        "disconnected": "disconnected",
+        "error": "error",
+        "wait": "please wait until the connection is complete"
     }
 }

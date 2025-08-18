@@ -1,6 +1,6 @@
 {
     "name": "@ia-cloud/node-red-dashboard-2-ia-cloud",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "ia-cloud Node-RED nodes",
     "keywords": [
         "node-red",
@@ -44,7 +44,7 @@
         "to-title-case": "^1.0.0",
         "vue": "^3.3.8",
         "vuex": "^4.1.0",
-        "@ia-cloud/node-red-contrib-ia-cloud-common-nodes": "^0.1.0",
+        "@ia-cloud/node-red-contrib-ia-cloud-common-nodes": "^0.2.1",
         "json2csv": "4.3.5",
         "node-red-dashboard": "2.17.0",
         "serve-static": "~1.13.2",
@@ -75,6 +75,9 @@
             "retrieve": "nodes/retrieve.js",
             "retrieve-getlatestdata": "nodes/retrieve-getlatestdata.js",
             "retrieve-getchartdata": "nodes/retrieve-getchartdata.js",
+            "retrieveII": "nodes/retrieveII.js",
+            "retrieve-getlatestdataII": "nodes/retrieve-getlatestdataII.js",
+            "retrieve-getchartdataII": "nodes/retrieve-getchartdataII.js",
             "ui-table-2": "nodes/ui-table.js",
             "ui-spreadsheet-2": "nodes/ui-spreadsheet.js",
             "ui-lamps-2": "nodes/ui-lamps.js",

@@ -1,9 +1,9 @@
 {
     "retrievegetlatestdata": {
-        "paletteLabel": "データ取得V2(最新取得用)",
+        "paletteLabel": "データ取得V2(最新取得用)II",
         "label": {
             "name": "名前",
-            "ccs-connection-config": "接続先CCS",
+            "ccs-connection-configII": "接続先CCS",
             "tableName": "テーブル名",
             "objectKey": "オブジェクトキー",
             "series": "項目設定",
@@ -39,7 +39,7 @@
     "editor": {
         "paletteLabel": "ia-cloud-V2接続",
         "name": "ノード名称",
-        "ccs-connection-config": "接続先CCS",
+        "ccs-connection-configII": "接続先CCS",
         "details": "詳細設定有効",
         "fdsKey": "データソースのユニークキー",
         "comment": "データソースの説明",
@@ -47,13 +47,13 @@
         "tappingInterval": "接続確認間隔",
         "tip-fdskey": "独自のFDSKeyを指定する場合に変更してください",
         "tip-cnctRetryInterval": "CCSへの接続が切断された時のリトライ間隔。分単位で設定。0はリトライを行わない",
-        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない",
-        "tip-deprecated":"このノードの使用は非推奨です。古いアプリケーションフローの維持のため残してあります。新しいノード[ia-cloud接続II]とその設定ノードを使用してください。"
+        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない"
     },
     "runtime": {
         "connect": "接続中",
         "complete": "取得完了",
         "noData": "取得データなし",
+        "noParam": "項目設定なし",
         "faild": "データ取得失敗",
         "periodError": "指定期間が無効",
         "connected": "接続済",

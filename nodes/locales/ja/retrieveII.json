@@ -1,25 +1,45 @@
 {
-    "retrievegetlatestdata": {
-        "paletteLabel": "データ取得V2(最新取得用)",
+    "retrieve": {
+        "paletteLabel": "データ取得V2(標準)II",
         "label": {
             "name": "名前",
-            "ccs-connection-config": "接続先CCS",
+            "ccs-connection-configII": "接続先CCS",
             "tableName": "テーブル名",
+            "operation": "操作",
             "objectKey": "オブジェクトキー",
-            "series": "項目設定",
+            "period": "期間",
             "repeat": "繰り返し",
+            "aggregation": "アグリゲーション",
             "round": "表示桁数",
-            "item": "出力形式"
+            "limit": "データ件数",
+            "sort": "並び順",
+            "item": "item"
         },
-        "series": {
-            "number": "No.",
-            "dataName": "dataName",
-            "displayName": "表示名",
-            "add": "追加",
-            "delete": "削除"
+        "period": {
+            "inDateset": "datesetから入力する",
+            "inNodeSetting": "ノード設定内で入力する"
         },
         "repeat": {
             "check": "処理を繰り返す"
+        },
+        "aggregation": {
+            "aggregationCheck": "設定",
+            "aggreunit": "単位",
+            "max": "最大値",
+            "min": "最小値",
+            "average": "平均",
+            "median": "中央値",
+            "count": "カウント",
+            "integration": "積算",
+            "first": "最初",
+            "last": "最後",
+            "year": "年",
+            "month": "月",
+            "week": "週",
+            "day": "日",
+            "hour": "時",
+            "minute": "分",
+            "second": "秒"
         },
         "round": {
             "noexe": "丸め無し",
@@ -31,15 +51,15 @@
             "-2": "10の位",
             "-3": "100の位"
         },
-        "item": {
-            "graphData": "グラフ用データ",
-            "numericData": "数値変換用データ"
+        "sort": {
+            "asc": "昇順",
+            "desc": "降順"
         }
     },
     "editor": {
-        "paletteLabel": "ia-cloud-V2接続",
+        "paletteLabel": "ia-cloud-V2接続II",
         "name": "ノード名称",
-        "ccs-connection-config": "接続先CCS",
+        "ccs-connection-configII": "接続先CCS",
         "details": "詳細設定有効",
         "fdsKey": "データソースのユニークキー",
         "comment": "データソースの説明",
@@ -47,8 +67,7 @@
         "tappingInterval": "接続確認間隔",
         "tip-fdskey": "独自のFDSKeyを指定する場合に変更してください",
         "tip-cnctRetryInterval": "CCSへの接続が切断された時のリトライ間隔。分単位で設定。0はリトライを行わない",
-        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない",
-        "tip-deprecated":"このノードの使用は非推奨です。古いアプリケーションフローの維持のため残してあります。新しいノード[ia-cloud接続II]とその設定ノードを使用してください。"
+        "tip-tappingInterval": "CCSへの接続の確認のため、リクエストがなくとも、getStausリクエストを送出する間隔を、時間単位で設定。0は接続確認を行わない"
     },
     "runtime": {
         "connect": "接続中",
@@ -64,7 +83,6 @@
         "error": "エラー",
         "no-response": "CCSが応答しません",
         "bad-response": "CCSがエラーを返しました",
-        "json-error": "CCSが不正なJSONメッセージを返しました",
-        "wait": "CCSへの接続が完了するまで待ってください"
+        "json-error": "CCSが不正なJSONメッセージを返しました"
     }
 }
