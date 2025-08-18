@@ -77,7 +77,7 @@
         "cnctRetryInterval": "CCS connection retry interval",
         "tappingInterval": "connection check interval",
         "tip-fdskey": "Change this if you want to specify your own FDSKey.",
-        "tip-cnctRetryInterval": "Connection check interval",
+        "tip-cnctRetryInterval": "Retry interval in minutes for CCS connection error.Use 0 for no-retry.",
         "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check.",
         "outputV2Tips1": "The set values for the 0 chart node should be as follows",
         "outputV2Tips2": "series: \"key:series\" x: \"key:x\" y: \"key:y"

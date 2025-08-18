@@ -70,8 +70,10 @@
         "comment": "Discription of the data source",
         "cnctRetryInterval": "CCS Retry Interval",
         "tappingInterval": "CCS Tapping Interval",
+        "tip-fdskey": "Change this if you want to specify your own FDSKey.",
         "tip-cnctRetryInterval": "Retry interval in minutes for CCS connection error.Use 0 for no-retry.",
-        "tip-tappingInterval": "Tapping CCS interval in hours to check connection using getStatus request.Use 0 for no-retry."
+        "tip-tappingInterval": "Tapping CCS interval in hours to check connection using getStatus request.Use 0 for no-retry.",
+        "tip-deprecated":"This node is deprecated and is kept to maintain the old application flow. Please use the new node [Data Get V2 (Normal)II] and its configuration node."
     },
     "runtime": {
         "connected": "connected",

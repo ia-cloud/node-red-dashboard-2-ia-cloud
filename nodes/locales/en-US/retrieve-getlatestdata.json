@@ -36,6 +36,17 @@
             "numericData": "num_dt Data"
         }
     },
+    "editor": {
+        "details": "Advanced Settings",
+        "fdsKey": "Unique key of the data source",
+        "cnctRetryInterval": "CCS connection retry interval",
+        "tappingInterval": "CCS Tapping Interval",
+        "tip-fdskey": "Change this if you want to specify your own FDSKey.",
+        "tip-cnctRetryInterval": "Retry interval in minutes for CCS connection error.Use 0 for no-retry.",
+        "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check.",
+        "tip-deprecated":"This node is deprecated and is kept to maintain the old application flow. Please use the new node [dataGetV2(latest)II] and its configuration node."
+    },
+
     "runtime": {
         "connect": "connecting",
         "complete": "completed",
