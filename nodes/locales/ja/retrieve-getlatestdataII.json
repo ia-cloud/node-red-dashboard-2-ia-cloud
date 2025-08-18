@@ -53,6 +53,7 @@
         "connect": "接続中",
         "complete": "取得完了",
         "noData": "取得データなし",
+        "noParam": "項目設定なし",
         "faild": "データ取得失敗",
         "periodError": "指定期間が無効",
         "connected": "接続済",

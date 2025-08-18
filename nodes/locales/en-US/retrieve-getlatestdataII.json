@@ -36,12 +36,24 @@
             "numericData": "num_dt Data"
         }
     },
+    "editor": {
+        "details": "Advanced Settings",
+        "fdsKey": "Unique key of the data source",
+        "cnctRetryInterval": "CCS connection retry interval",
+        "tappingInterval": "connection check interval",
+        "tip-fdskey": "Change this if you want to specify your own FDSKey.",
+        "tip-cnctRetryInterval": "Connection check interval",
+        "tip-tappingInterval": "Sets the interval, in hours, at which getStaus requests are sent to confirm the connection to the CCS, even if no request is received. 0 means no connection check."
+    },
     "runtime": {
         "connect": "connecting",
         "complete": "completed",
         "noData": "no data",
         "noParam": "no series",
         "faild": "data acquisition failure",
-        "error": "error"
+        "connected": "connected",
+        "disconnected": "disconnected",
+        "error": "error",
+        "wait": "please wait until the connection is complete"
     }
 }
