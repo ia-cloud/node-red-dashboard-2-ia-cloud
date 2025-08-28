@@ -29,6 +29,12 @@
     "scripts": {
         "build": "vite build",
         "build:dev": "NODE_ENV=development vite build",
+        "build:table": "set \"WIDGET=ui-table-2\" && npm run build",
+        "build:lamps": "set \"WIDGET=ui-lamps-2\" && npm run build",
+        "build:num-dt": "set \"WIDGET=ui-num-dt-2\" && npm run build",
+        "build:oprstatus": "set \"WIDGET=ui-oprstatus-2\" && npm run build",
+        "build:spreadsheet": "set \"WIDGET=ui-spreadsheet-2\" && npm run build",
+        "build:dateset": "set \"WIDGET=ui-dateset-2\" && npm run build",
         "dev": "NODE_ENV=development vite build --watch",
         "dev:prod": "vite build --watch",
         "lint": "npm run lint:js && npm run lint:package",

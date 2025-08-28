@@ -43,6 +43,7 @@ module.exports = function (RED) {
             },
             onSocket: {
                 'dateset-event': function (conn, id, msg) {
+                    if (id !== node.id) return;
                     console.info('"dateset-event" received:', conn.id, id, msg)
                     console.info('conn.id:', conn.id)
                     console.info('id:', id)

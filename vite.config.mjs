@@ -8,7 +8,17 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // Set to this to the name of this collection of components
 // This must match node-red-dashboard-2.widgets[libraryName] in package.json
-const LIBRARY_NAME = 'ui-table-2'
+const LIBRARY_NAME = {
+    'ui-dateset-2': 'ui/entries/ui-dateset-2.js',
+    'ui-lamps-2': 'ui/entries/ui-lamps-2.js',
+    'ui-num-dt-2': 'ui/entries/ui-num-dt-2.js',
+    'ui-oprstatus-2': 'ui/entries/ui-oprstatus-2.js',
+    'ui-spreadsheet-2': 'ui/entries/ui-spreadsheet-2.js',
+    'ui-table-2': 'ui/entries/ui-table-2.js'
+}
+
+const NAME = process.env.WIDGET || 'ui-table-2'
+if (!LIBRARY_NAME[NAME]) throw new Error(`Unknown widget: ${NAME}`)
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,7 +29,7 @@ export default defineConfig({
             targets: [
                 {
                     // Copy the build output into Node-RED's /resources folder
-                    src: normalizePath(resolve(__dirname, `./ui/dist/${LIBRARY_NAME}.umd.js`)),
+                    src: normalizePath(resolve(__dirname, `./ui/dist/${NAME}.umd.js`)),
                     dest: normalizePath(resolve(__dirname, 'resources'))
                 }
             ]
@@ -32,10 +42,10 @@ export default defineConfig({
 
         // Configure build as a UMD library
         lib: {
-            entry: resolve(__dirname, 'ui/index.js'),
-            name: LIBRARY_NAME,
+            entry: resolve(__dirname, LIBRARY_NAME[NAME]),
+            name: NAME,
             formats: ['umd'],
-            fileName: (format, name) => `${LIBRARY_NAME}.${format}.js`
+            fileName: (format, name) => `${NAME}.${format}.js`
         },
 
         // This is the target location for the build output
