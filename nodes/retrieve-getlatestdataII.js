@@ -88,6 +88,11 @@ module.exports = function (RED) {
 		this.KeyConditionExpression = "objectKey = :a";		// 検索条件
 		this.objectKey = config.objectKey;
 
+		// 繰り返し条件の取得
+		this.repeatCheck = config.repeatCheck;
+		this.repeat = config.repeat;
+		var interval = null;
+
 		// 出力データ項目設定情報取得
 		var params;
 		try {
