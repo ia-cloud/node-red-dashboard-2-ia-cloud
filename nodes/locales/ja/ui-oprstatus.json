@@ -13,8 +13,8 @@
             "guide": "凡例表示"
         },
         "input": {
-            "getchartdata": "データ取得V2(chart用)",
-            "formatdata": "フォーマットデータ"
+            "getchartdata": "データ取得V2(chart用)II",
+            "formatdata": "msg.payload"
         },
         "itemObject": {
             "add": "追加",

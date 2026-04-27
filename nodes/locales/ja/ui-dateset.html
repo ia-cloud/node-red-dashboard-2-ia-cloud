@@ -1,14 +1,22 @@
 <script type="text/x-red" data-help-name="ui-dateset-2" data-lang="ja">
-	<p>ウィジェット追加方法
-        [<a herf="https://dashboard.flowfuse.com/contributing/widgets/third-party.html">Building Third Party Widgets</a>]を参考に実装したノードです。
-		開始日時・終了日時の取得ができます。
-		「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-iacloud">retrieve-iacloud</a>」、「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">retrieve-getChartdata-iacloud</a>」の入力に使用します。</p>
+	<p>このノードは、ダッシュボード上で入力した開始日時・終了日時を出力するノードです。
+        ウィジェット追加方法は
+        <a href="https://dashboard.flowfuse.com/contributing/widgets/third-party.html" target="_blank">Building Third Party Widgets</a>
+        を参考に実装しています。</p>
+	<p>「ノード：データ取得V2(標準)II」、
+		「ノード：データ取得V2(chart用)II」
+		などの入力に使用できます。</p>
 	<h3>出力メッセージ</h3>
 	<dl class="message-properties">
 		<dt>payload <span class="property-type">object</span></dt>
 		<dd>ダッシュボードから取得した開始日時、終了日時を出力します。</dd>
 	</dl>
 	<h3>詳細説明</h3>
-	<p>開始日時がsdate, 終了日時がedateに設定されたオブジェクトが出力されます。
-		開始日時、終了日付が入力されていなかった場合、入力されなかった項目が削除された結果が出力されます。</p>
+	<p>出力される <code>payload</code> には、開始日時を <code>sdatetime</code>、終了日時を <code>edatetime</code> として設定します。</p>
+	<ul>
+		<li>開始日時、終了日時の両方が入力されている場合：<code>sdatetime</code> と <code>edatetime</code> の両方を出力します。</li>
+		<li>開始日時のみ入力されている場合：<code>sdatetime</code> を出力し、<code>edatetime</code> は <code>null</code> を設定します。</li>
+		<li>終了日時のみ入力されている場合：<code>edatetime</code> を出力し、<code>sdatetime</code> は <code>null</code> を設定します。</li>
+	</ul>
+	<p>日時は <code>YYYY-MM-DDTHH:mm:ss</code> 形式に変換して出力します。</p>
 </script>

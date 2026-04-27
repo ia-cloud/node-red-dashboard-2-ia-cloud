@@ -6,12 +6,11 @@ dashboard-2 - ui-num-dtノード
 
 ## 機能概要
 
-ウィジェット追加方法[[Building Third Party Widgets](https://dashboard.flowfuse.com/contributing/widgets/third-party.html)]を参考に実装したノードです。
 「ラベル + 値 + 単位」もしくは「(ラベル) + 日時」を、入力メッセージの配列数だけ、縦に並べて表示します。
 
 ## 入力メッセージ
 
-プロパティ内のデータ型(Datatype)に設定値に対応した入力メッセージを``msg.payload``から入力します。
+プロパティ内のデータ型(Datatype)に設定した値に対応した入力メッセージを``msg.payload``から入力します。
 
 - ### プロパティでデータ型に「数値」を設定した場合
   以下のように`[[ラベル, 値, 単位], ...]`のデータ形式で入力してください。

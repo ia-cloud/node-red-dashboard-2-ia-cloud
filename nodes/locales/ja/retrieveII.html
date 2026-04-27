@@ -1,13 +1,53 @@
 <script type="text/x-red" data-help-name="retrieveII" data-lang="ja">
-	<p>AWS-SDKでretrieve関数をラップするノードのセット。
-	このノードはscan, query, put関数のみを使用できます。</p>
-	<h3>出力メッセージ</h3>
-	<dl class="message-properties">
-		<dt>payload <span class="property-type">object</span></dt>
-		<dd>各操作によって取得したオブジェクト。配列Itemsに格納された状態で返却されます。</dd>
-	</dl>
-	<h3>詳細説明</h3>
-	<p>本ノードはJavascript APIをラップしたものです。より詳細に知るには、<a href="https://docs.aws.amazon.com/sdkforruby/api/Aws/retrieve/Client.html">APIドキュメント</a>を参照してください。</p>
-	<p><b>注</b>:このノードを使用するには、retrieve操作ユーザの情報が必要になります。  
-		ユーザ情報は別途発行・取得する必要があります。</p>
-</script>
+  <p>このノードは、ia-cloud V2のCCS接続設定を使用して、指定した objectKeyのia-cloudオブジェクトを取得するノードです。</p>
+  <p>取得時には期間、取得件数、並び順を指定でき、必要に応じてアグリゲーション処理と表示桁数の丸め処理を行ったうえで出力します。</p>
+
+  <h3>出力メッセージ</h3>
+  <dl class="message-properties">
+    <dt>payload <span class="property-type">object</span></dt>
+    <dd>取得したia-cloudオブジェクトを指定された各ダッシュボードノードへ入力する際の形に変換した結果（json形式）。</dd>
+  </dl>
+
+  <h3>出力データ形式</h3>
+  <p><code>payload.Items</code> には、取得した ia-cloudオブジェクトの配列が格納されます。</p>
+
+  <pre><code>{
+    "payload": {
+      "Items": [
+        {
+          "objectKey": "sample-key",
+          "dataObject": {
+            "objectType": "iaCloudObject",
+            "objectContent": {
+              "contentType": "...",
+              "contentData": [...]
+            },
+            "timestamp": "2026-04-01T08:00:00+09:00"
+          },
+          "timestamp": "2026-04-01T08:00:00+09:00"
+        }
+      ]
+    }
+  }</code></pre>
+
+  <h3>詳細説明</h3>
+  <p>データ取得はCCS接続ノード経由で <code>retrieveArray</code> を実行します。</p>
+
+  <p>期間指定は以下の2通りです。</p>
+  <ul>
+      <li>日付設定ノードから開始日時・終了日時を入力する</li>
+      <li>ノード設定内で開始日時・終了日時を指定する</li>
+  </ul>
+
+  <p>開始日時と終了日時の両方を指定した場合、開始日時が終了日時以下のときのみ取得を実行します。</p>
+
+  <p>取得結果に対して、必要に応じて以下の処理を行えます。</p>
+  <ul>
+      <li>アグリゲーション（最大値、最小値、平均、中央値、カウント、積算、最初、最後）</li>
+      <li>表示桁数の丸め</li>
+  </ul>
+  <p>最大取得データ件数は1000件で、未設定の場合1000件取得します。</p>
+
+  <p><b>注</b>: 本ノードを使用するには、ia-cloud V2の接続先CCS設定（DynamoDB操作ユーザの情報）が必要です。</p>
+  <p>ユーザ情報は別途発行・取得する必要があります。</p>
+  </script>

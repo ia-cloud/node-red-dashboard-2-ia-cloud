@@ -6,12 +6,11 @@ dashboard-2 - ui-spreadsheetノード
 
 ## 機能概要
 
-ウィジェット追加方法[[Building Third Party Widgets](https://dashboard.flowfuse.com/contributing/widgets/third-party.html)]を参考に実装したノードです。
 ia-cloudオブジェクトデータの集計結果をテーブル(表)を表示します。
 
 ## 入力メッセージ
 
-この関数を利用する際には、「ノード：[retrieve](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve.md)」から出力されたia-cloudオブジェクトデータを直接本ノードに入力します。
+この関数を利用する際には、「ノード：[retrieveII](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieveII.md)」から出力されたia-cloudオブジェクトデータを直接本ノードに入力します。
 以下に入力データの例を示します。
 
         {
