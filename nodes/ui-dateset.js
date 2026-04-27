@@ -63,11 +63,13 @@ module.exports = function (RED) {
 
                     if (msg.payload.sdatetime == undefined) {
                         var sendJson = {
+                            sdatetime: null,
                             edatetime: msg.payload.edatetime
                         }
                     } else if (msg.payload.edatetime == undefined) {
                         var sendJson = {
-                            sdatetime: msg.payload.sdatetime
+                            sdatetime: msg.payload.sdatetime,
+                            edatetime: null,
                         }
                     } else {
                         var sendJson = {

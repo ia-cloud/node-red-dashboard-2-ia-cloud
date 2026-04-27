@@ -121,14 +121,19 @@ module.exports = function (RED) {
         }, STATUSINTERVAL) ;
 
 		// sendメッセージ関数作成
-		node.sendMsg = function (data) {
+		node.sendMsg = function (data, label) {
 			var msg;
-			if (data == []) {
+			if (data === null || data === undefined || (Array.isArray(data) && data.length === 0)) {
 				node.status({ fill: "red", shape: "ring", text: "runtime.error" });
 				node.error("error: sendMeg error");
 				return;
 			} else {
 				msg = { payload: data };
+				if (label !== undefined && label !== null && label !== "") {
+					msg.ui_update = {
+						label: label
+					};
+				}
 			}
 			node.send(msg);
 		};
@@ -219,6 +224,7 @@ module.exports = function (RED) {
 			let res;
 
 			var i, j;
+			let outputLabel = null;
 
 			try {
 				// 正常なレスポンス
@@ -236,6 +242,7 @@ module.exports = function (RED) {
 						}
 
 						itemList = resultList.Items;
+						let originalItem = itemList[0];
 						delete resultList.Items;
 						resultList = [];
 
@@ -248,7 +255,8 @@ module.exports = function (RED) {
 							console.log("objectContent(ObjectContent)が無効\n");
 						}
 						if (contentList != undefined && node.item == "graphData") {
-							// 一次元配列
+							// 単一値
+
 							for (i = 0; i < outSeriesList.length; i++) {
 								for (j = 0; j < contentList.length; j++) {
 									if (outSeriesList[i].dataName == contentList[j].dataName) {
@@ -259,11 +267,18 @@ module.exports = function (RED) {
 								}
 								if (j < contentList.length) {
 									// 見つかった場合
-									resultList.push(contentList[j].dataValue);
+									resultList = Number(contentList[j].dataValue);
 								} else {
 									// 見つからなかった場合
-									resultList.push(null);
+									resultList = null;
 								}
+
+								if (outSeriesList[i].displayName != undefined && outSeriesList[i].displayName !== "") {
+									outputLabel = outSeriesList[i].displayName;
+								} else {
+									outputLabel = outSeriesList[i].dataName;
+								}
+
 								node.status({ fill: "green", shape: "dot", text: "runtime.complete" });
 							}
 						} else if (contentList != undefined && node.item == "numericData") {
@@ -310,12 +325,36 @@ module.exports = function (RED) {
 								}
 							}
 							node.status({ fill: "green", shape: "dot", text: "runtime.complete" });
+						} else if (contentList != undefined && node.item == "iaCloudData") {
+							// ia-cloudオブジェクト形式での出力
+							let filteredContent = [];
+
+							for (i = 0; i < outSeriesList.length; i++) {
+								for (j = 0; j < contentList.length; j++) {
+									if (outSeriesList[i].dataName == contentList[j].dataName ||
+										outSeriesList[i].dataName == contentList[j].dataname) {
+
+										filteredContent.push(contentList[j]);
+										break;
+									}
+								}
+							}
+
+							// 元データをコピーして差し替え
+							let newItem = JSON.parse(JSON.stringify(originalItem));
+
+							newItem.dataObject.objectContent.contentData = filteredContent;
+
+							resultList = newItem.dataObject;
+							outputLabel = null;
+
+							node.status({ fill: "green", shape: "dot", text: "runtime.complete" });
 						} else {
 							node.error("getLatestdata - 指定条件のデータが見つかりませんでした");
 							node.status({ fill: "red", shape: "ring", text: "runtime.faild" });
 							resultList = [];
 						}
-						node.sendMsg(resultList);
+						node.sendMsg(resultList, outputLabel);
 					} catch (e) {
 						// データ取得時に例外発生
 						console.log("データ分解時に例外発生", e);

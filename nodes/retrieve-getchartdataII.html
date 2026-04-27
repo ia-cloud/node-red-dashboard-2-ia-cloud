@@ -23,7 +23,7 @@
 			fdskey: { value: "com.ia-cloud.node-red.getdatanode" },
 			cnctRetryInterval: { value: 60, validate: RED.validators.number() },
 			tappingInterval: { value: 24, validate: RED.validators.number() },
-			output: { value: "1", required: true }
+			output: { value: "2", required: true }
 		},
 		credentials: {
 		},
@@ -403,27 +403,6 @@
 </div>
 
 
-<div class="form-row">
-	<input type="checkbox" id="node-input-details" style="display: inline-block; width: auto; vertical-align: top;">
-	<label for="node-input-details" style="width: 70%;"><span data-i18n="editor.details"></span></label>
-	<div style="margin-left: 20px" class="node-input-details-row hide">
-		<div class="form-row">
-			<label for="node-input-fdsKey"><span data-i18n="editor.fdsKey"></span></label>
-			<input type="text" id="node-input-fdskey">
-		</div>
-		<div class="form-tips" id="tip-fdskey"><span data-i18n="editor.tip-fdskey"></span></div>
-		<div class="form-row">
-			<label for="node-input-cnctRetryInterval"><span data-i18n="editor.cnctRetryInterval"></span></label>
-			<input type="number" min="0" id="node-input-cnctRetryInterval">
-		</div>
-		<div class="form-tips" id="tip-cnctRetryInterval"><span data-i18n="editor.tip-cnctRetryInterval"></span></div>
-		<div class="form-row">
-			<label for="node-input-tappingInterval"><span data-i18n="editor.tappingInterval"></span></label>
-			<input type="number" min="0" id="node-input-tappingInterval">
-		</div>
-		<div class="form-tips" id="tip-tappingInterval"><span data-i18n="editor.tip-tappingInterval"></span></div>
-	</div>
-</div>
 
 <!-- ノード名 -->
 <hr />

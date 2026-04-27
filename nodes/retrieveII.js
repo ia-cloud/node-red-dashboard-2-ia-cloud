@@ -206,9 +206,9 @@ module.exports = function (RED) {
 					query.to = edatetime + "+09:00";	        // 期間セット
 				} else if (node.sdatetime != undefined && node.edatetime == undefined) {
 					// 開始のみ条件あり
-					query.from = node.query.from + "+09:00";		        // 期間セット
-					delete node.query.to;                                    // 期間セット
-				} else if (node.sdatetime == undefined && node.edate != undefined) {
+					query.from = sdatetime + "+09:00";			  	         // 期間セット
+					delete query.to;                                    // 期間セット
+				} else if (node.sdatetime == undefined && node.edatetime != undefined) {
 					// 終了のみ条件あり
 					delete query.from;                                    // 期間セット
 					query.to = edatetime + "+09:00";          // 期間セット
@@ -216,6 +216,13 @@ module.exports = function (RED) {
 					// 開始・終了共に条件なし
 					delete query.from;                                    // 期間セット
 					delete query.to;                                   // 期間セット
+				}
+
+				// 並び替え
+				if (node.ScanIndexForward == "true") {
+					query.ScanIndexForward = true;
+				} else if (node.ScanIndexForward == "false") {
+					query.ScanIndexForward = false;
 				}
 
 				let req = {
