@@ -1,7 +1,8 @@
 
 module.exports = function (RED) {
 
-	const MAX_LIMIT = 1000;			// 最大取得件数 CCSの環境変数に合わせる
+	const MAX_LIMIT = 10000;			// 最大取得件数 CCSの環境変数に合わせる
+	const DEFAULT_NUM = 1000;
 
 	/* 使用モジュール定義 */
 	var retrieve = require("../dynamodbConnection/retrieve")(RED);
@@ -105,8 +106,8 @@ module.exports = function (RED) {
 
 		// Limitチェック
 		if (this.limit == "" || this.limit > MAX_LIMIT) {
-			// 上限件数の指定がない or MAX_LIMITを超える値の場合はMAX_LIMIT件とする
-			this.limit = MAX_LIMIT;
+			// 上限件数の指定がない or MAX_LIMITを超える値の場合はDEFAULT_NUM件とする
+			this.limit = DEFAULT_NUM;
 		}
 
 		let retrieveArrayLimit = parseInt(this.limit);
@@ -182,40 +183,22 @@ module.exports = function (RED) {
 			if (edatetime == null || edatetime == "") {
 				edatetime = undefined
 			}
+			node.sdatetime = sdatetime;
+			node.edatetime = edatetime;
 
-			// sdatetime, edatetime共に入力あり かつ sdatetime<=edatetimeの場合に処理続行
-			if (sdatetime == undefined || edatetime == undefined || moment(sdatetime) <= moment(edatetime)) {
+			// sdatetime, edatetimeともに入力あり かつ sdatetime>edatetimeの場合
+			if (sdatetime != undefined && edatetime != undefined && moment(sdatetime) > moment(edatetime)) {
+				node.status({ fill: "red", shape: "ring", text: "runtime.periodError" });
+				node.error("retrieve - 期間指定に誤りがあります");
+				node.sendMsg(dummy);
+			} else {
+				// そのほか取得処理
 
 				let query = {
 					limit: limit,	// 検索上限
 					type: "between",    // 検索方法
 					from: "",
 					to: "",
-				}
-
-				if (sdatetime != undefined) {
-					query.from = moment(sdatetime).format("YYYY-MM-DDTHH:mm:ss");
-				}
-				if (edatetime != undefined) {
-					query.to = moment(edatetime).format("YYYY-MM-DDTHH:mm:ss");
-				}
-
-				if (node.sdatetime != undefined && node.edatetime != undefined) {
-					// 開始・終了共に条件あり
-					query.from = sdatetime + "+09:00";	        // 期間セット
-					query.to = edatetime + "+09:00";	        // 期間セット
-				} else if (node.sdatetime != undefined && node.edatetime == undefined) {
-					// 開始のみ条件あり
-					query.from = sdatetime + "+09:00";			  	         // 期間セット
-					delete query.to;                                    // 期間セット
-				} else if (node.sdatetime == undefined && node.edatetime != undefined) {
-					// 終了のみ条件あり
-					delete query.from;                                    // 期間セット
-					query.to = edatetime + "+09:00";          // 期間セット
-				} else {
-					// 開始・終了共に条件なし
-					delete query.from;                                    // 期間セット
-					delete query.to;                                   // 期間セット
 				}
 
 				// 並び替え
@@ -225,6 +208,34 @@ module.exports = function (RED) {
 					query.ScanIndexForward = false;
 				}
 
+				if (sdatetime != undefined) {
+					query.from = moment(sdatetime).format("YYYY-MM-DDTHH:mm:ss");
+				}
+				if (edatetime != undefined) {
+					query.to = moment(edatetime).format("YYYY-MM-DDTHH:mm:ss");
+				}
+
+				if (sdatetime != undefined && edatetime != undefined) {
+					// 開始・終了共に条件あり
+					query.from = sdatetime + "+09:00";					// 期間セット
+					query.to = edatetime + "+09:00";					// 期間セット
+				} else if (sdatetime != undefined && edatetime == undefined) {
+					// 開始のみ条件あり
+					query.from = sdatetime + "+09:00";					// 期間セット
+					delete query.to;									// 期間セット
+					query.ScanIndexForward = true;						// 昇順に設定
+				} else if (sdatetime == undefined && edatetime != undefined) {
+					// 終了のみ条件あり
+					delete query.from;									// 期間セット
+					query.to = edatetime + "+09:00";					// 期間セット
+					query.ScanIndexForward = false;						// 降順に設定
+				} else {
+					// 開始・終了共に条件なし
+					delete query.from;									// 期間セット
+					delete query.to;									// 期間セット
+					query.ScanIndexForward = false;						// 降順に設定
+				}
+
 				let req = {
 					"objectKey": objectKey,
 					"query": query
@@ -232,10 +243,6 @@ module.exports = function (RED) {
 
 				// retrieveArray リクエスト
 				iaCloudRetrieveArrayRequest(req);
-			} else {
-				node.status({ fill: "red", shape: "ring", text: "runtime.periodError" });
-				node.error("retrieve - 期間指定に誤りがあります");
-				node.sendMsg(dummy);
 			}
 		}
 
@@ -276,6 +283,23 @@ module.exports = function (RED) {
 							resultList = retrieve.aggregation(items, node);
 						} else {
 							resultList = items;
+						}
+
+						// 期間未設定時、並び替え
+						if (node.sdatetime == undefined && node.edatetime == undefined) {
+							if (node.ScanIndexForward == "true") {
+								resultList.reverse();
+							}
+						// 開始のみ設定時、並び替え
+						} else if (node.sdatetime != undefined && node.edatetime == undefined) {
+							if (node.ScanIndexForward == "false") {
+								resultList.reverse();
+							}
+						// 終了のみ設定時、並び替え
+						} else if (node.sdatetime == undefined && node.edatetime != undefined) {
+							if (node.ScanIndexForward == "true") {
+								resultList.reverse();
+							}
 						}
 
 						// 桁数変更処理
