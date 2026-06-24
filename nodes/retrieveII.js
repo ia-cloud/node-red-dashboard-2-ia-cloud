@@ -1,7 +1,7 @@
 
 module.exports = function (RED) {
 
-	const MAX_LIMIT = 10000;			// 最大取得件数 CCSの環境変数に合わせる
+	const MAX_LIMIT = 1000;			// 最大取得件数 CCSの環境変数に合わせる
 	const DEFAULT_NUM = 1000;
 
 	/* 使用モジュール定義 */
