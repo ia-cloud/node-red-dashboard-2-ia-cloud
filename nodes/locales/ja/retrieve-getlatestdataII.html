@@ -1,14 +1,58 @@
 <script type="text/x-red" data-help-name="retrieve-getlatestdataII" data-lang="ja">
-	<p>このノードは指定したDynamoDBから直近1件分のiacloudオブジェクトを取得し、<a href ="https://github.com/node-red/node-red-dashboard">node-red ダッシュボード</a>、
-		<a href ="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud">iacloudダッシュボードノード</a>の各ノードへ入力する際の形へ変換することができます。</p>
+    <p>このノードは、ia-cloud V2のCCS接続設定を使用して、指定した objectKeyのia-cloudオブジェクトの最新1件を取得し、各ダッシュボードノードへ入力する際の形に変換して出力するノードです。</p>
+    <p>取得結果に対して、必要に応じて表示桁数の丸め処理を行ったうえで出力します。</p>
+
     <h3>出力メッセージ</h3>
     <dl class="message-properties">
         <dt>payload <span class="property-type">object</span></dt>
-        <dd>取得したiacloudオブジェクトを指定された各ダッシュボードノードへ入力する際の形に変換した結果（json形式）。</dd>
+        <dd>取得したia-cloudオブジェクトを指定された各ダッシュボードノードへ入力する際の形に変換した結果（json形式）。</dd>
     </dl>
+
+    <h3>出力データ形式</h3>
+    <p>出力形式は「出力データの構成設定」により異なります。</p>
+
+    <h4>1. graphDataの場合</h4>
+    <p>指定したdataNameの値を1つ取得し、単一の値として出力します。</p>
+    <p><b>※</b> graphDataの場合、dataNameは1件のみ設定可能です。</p>
+
+    <pre><code>{
+        "payload": 12.3
+    }</code></pre>
+
+    <h4>2. numericDataの場合</h4>
+    <p>指定したdataNameごとに、<code>[表示名, 値, 単位]</code> の配列を要素とする二次元配列で出力します。</p>
+
+    <pre><code>{
+        "payload": [
+        ["温度", 12.3, "℃"],
+        ["圧力", 45.6, "kPa"],
+        ["流量", 78.9, "L/min"]
+        ]
+    }</code></pre>
+
+    <h4>3. iaCloudDataの場合</h4>
+    <p>取得したia-cloudオブジェクトをそのまま出力します。</p>
+
+    <pre><code>{
+        "payload": {
+            "objectContent": {
+                "contentData": [ ... ]
+            },
+            "objectKey": "sample-key"
+            "timestamp": "2026-04-01T08:00:00+09:00",
+            "objectType": "iaCloudObject",
+            "objectDescription": "..."
+        }
+    }</code></pre>
+
     <h3>詳細説明</h3>
-	<p>AWS-SDK DynamoDB関数をラップしており、DynamoDBからデータを取得する処理にはQueryを使用しています。</p>
-	<p>本ノードはJavascript APIをラップしたものです。より詳細に知るには、<a href="https://docs.aws.amazon.com/sdkforruby/api/Aws/DynamoDB/Client.html">APIドキュメント</a>を参照してください。</p>
-	<p><b>注</b>:このノードを使用するには、DynamoDB操作ユーザの情報が必要になります。  
-		ユーザ情報は別途発行・取得する必要があります。</p>
+    <p>データ取得は CCS接続ノード経由で <code>retrieveArray</code> を実行します。</p>
+    <p>本ノードは指定したobjectKeyに対して最新1件を取得します。</p>
+    <p>取得したia-cloudオブジェクトの <code>objectContent.contentData</code> から、設定したdataNameに一致する項目を抽出して出力します。</p>
+    <p>表示名が設定されている場合はその名称を優先して出力します。該当項目が存在しない場合は <code>null</code> を出力します。</p>
+    <p>表示桁数が設定されている場合は、取得値に対して丸め処理を行います。</p>
+    <p>取得データが存在しない場合は、空配列 <code>[]</code> を返します。</p>
+
+    <p><b>注</b>: 本ノードを使用するには、ia-cloud V2の接続先CCS設定（DynamoDB操作ユーザの情報）が必要です。</p>
+    <p>ユーザ情報は別途発行・取得する必要があります。</p>
 </script>

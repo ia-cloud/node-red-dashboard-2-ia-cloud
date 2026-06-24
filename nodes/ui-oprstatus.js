@@ -145,7 +145,7 @@ module.exports = function (RED) {
                     // 稼働状況の設定情報を取得、msgへ格納
                     msg.statusObject = statusObject;
 
-                    // 入力値がデータ取得V2(chart用) かつ データが降順だったらデータの前後をひっくり返す
+                    // 入力値がデータ取得V2(chart用)II かつ データが降順だったらデータの前後をひっくり返す
                     if (confsel == "inchartSet" && sort == "false") {
                         graphData = graphData.reverse();
                         xaxisData = xaxisData.reverse();

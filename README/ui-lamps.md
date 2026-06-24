@@ -36,10 +36,14 @@ dashboard-2 - ui-lampsノード
 |1|number|点灯|
 |"true"|string|点灯|
 |"1"|string|点灯|
+|"set"|string|点灯|
+|"on"|string|点灯|
 |false|boolean|消灯|
 |0|number|消灯|
 |"false"|string|消灯|
 |"0"|string|消灯|
+|"reset"|string|消灯|
+|"off"|string|消灯|
 |""|string|変化しない|
 |null|null|変化しない|
 
@@ -49,7 +53,7 @@ dashboard-2 - ui-lampsノード
 
 | 名称(ja) | 名称(en-US) | 種別 | 説明 |
 |:-|:-|:-:|:-|
-|グループ|Group|dashborad group|結果を出力するダッシュボードグループを設定します。|
+|グループ|Group|dashboard group|結果を出力するダッシュボードグループを設定します。|
 |サイズ|Size|number x number|ダッシュボード上に表示するサイズを設定します。|
 |向き|Direction|string|ダッシュボード上に表示するランプの並べる向きを設定します。<br>プルダウンで「縦(Vertical)」、「横(Horizontal)」を選択できます。|
 |形状|Phase|string|ダッシュボードに表示するランプの形状を設定します。<br>ランプ1個毎の設定が可能です。<br>プルダウンで「四角(Square)」、「丸(Circle)」を選択できます。|

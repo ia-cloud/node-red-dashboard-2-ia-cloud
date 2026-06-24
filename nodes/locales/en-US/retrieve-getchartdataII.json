@@ -1,6 +1,6 @@
 {
     "retrievegetchartdata": {
-        "paletteLabel": "DynamoDB(chart)II",
+        "paletteLabel": "DataGetV2(chart)II",
         "label": {
             "name": "name",
             "ccs-connection-configII": "CCS",

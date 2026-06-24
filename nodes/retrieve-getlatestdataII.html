@@ -138,10 +138,69 @@
                 },
             });
 
-            for (var i = 0; i < node.params.length; i++) {
-                var param = node.params[i];
-                $("#node-input-list-container").editableList('addItem', param);
+            if (node.params && node.params.length > 0) {
+                if ($("#node-input-item").val() === "graphData") {
+                    // 1件だけ
+                    $("#node-input-list-container").editableList('addItem', node.params[0]);
+                } else {
+                    // 複数件
+                    for (var i = 0; i < node.params.length; i++) {
+                        var param = node.params[i];
+                        $("#node-input-list-container").editableList('addItem', param);
+                    }
+                }
+            } else {
+                // 初期状態
+                $("#node-input-list-container").editableList('addItem', {
+                    dataName: "",
+                    displayName: ""
+                });
             }
+
+
+            // 追加ボタン表示切替
+            function toggleListButtonsByItem() {
+                var itemType = $("#node-input-item").val();
+                var $row = $(".node-input-list-container-row");
+                var $list = $("#node-input-list-container");
+                // 追加ボタン
+                var $addButton = $row.find(".red-ui-editableList-addButton");
+                // 削除ボタン
+                var $removeButtons = $row.find(".red-ui-editableList-item-remove");
+
+                if (itemType === "graphData") {
+                    var items = $list.editableList("items");
+                    var firstParam = null;
+
+                    if (items.length > 0) {
+                        var firstElm = $(items[0]);
+                        firstParam = {
+                            dataName: firstElm.find(".dataName").val(),
+                            displayName: firstElm.find(".displayName").val()
+                        };
+                    } else {
+                        firstParam = {
+                            dataName: "",
+                            displayName: ""
+                        };
+                    }
+
+                    // 一度全部消して、先頭1件だけ再作成
+                    $list.editableList("empty");
+                    $list.editableList("addItem", firstParam);
+
+                    $addButton.hide();
+                    $removeButtons.hide();
+                } else {
+                    $addButton.show();
+                    $removeButtons.show();
+                }
+            }
+            $("#node-input-item").change(function () {
+                toggleListButtonsByItem();
+            });
+
+            toggleListButtonsByItem();
         },
         oneditsave: function () {
             // 繰り返し設定
@@ -163,24 +222,39 @@
             var node = this;
             var configReady = "ready";
             var items = $("#node-input-list-container").editableList('items');
+            var itemType = $("#node-input-item").val();
             // paramデータ設定を作成
             node.params = [];
-            items.each(function (i, elm) {
-                var param = {
-                    // reatore parameters
-                    dataName: elm.find(".dataName").val(),
-                    displayName: elm.find(".displayName").val()
-                }
-                node.params.push(param);
+            // items.each(function (i, elm) {
+            if (items.length > 0) {
+                if (itemType === "graphData") {
+                    var elm = $(items[0]);
+                    var param = {
+                        // reatore parameters
+                        dataName: elm.find(".dataName").val(),
+                        displayName: elm.find(".displayName").val()
+                    }
+                    node.params.push(param);
 
-                // 必須propertyが揃っているか？
-                if (!param.dataName) {
-                    configReady = "";
-                }
-            });
+                    // 必須propertyが揃っているか？
+                    if (!param.dataName) {
+                        configReady = "";
+                    }
+                } else {
+                    items.each(function (i, elm) {
+                        elm = $(elm);
+                        var param = {
+                            dataName: elm.find(".dataName").val(),
+                            displayName: elm.find(".displayName").val()
+                        };
+                        node.params.push(param);
 
-            // データ設定が一つはある？
-            if (!node.params.length) {
+                        if (!param.dataName) {
+                            configReady = "";
+                        }
+                    });
+                }
+            } else {
                 configReady = "";
             }
 
@@ -280,30 +354,10 @@
     <select type="text" style="width:250px;" id="node-input-item">
         <option value="graphData" data-i18n="retrievegetlatestdata.item.graphData"></option>
         <option value="numericData" data-i18n="retrievegetlatestdata.item.numericData"></option>
+        <option value="iaCloudData" data-i18n="retrievegetlatestdata.item.iaCloudData"></option>
     </select>
 </div>
 
-<div class="form-row">
-    <input type="checkbox" id="node-input-details" style="display: inline-block; width: auto; vertical-align: top;">
-    <label for="node-input-details" style="width: 70%;"><span data-i18n="editor.details"></span></label>
-    <div style="margin-left: 20px" class="node-input-details-row hide">
-        <div class="form-row">
-            <label for="node-input-fdsKey"><span data-i18n="editor.fdsKey"></span></label>
-            <input type="text" id="node-input-fdskey">
-        </div>
-        <div class="form-tips" id="tip-fdskey"><span data-i18n="editor.tip-fdskey"></span></div>
-        <div class="form-row">
-            <label for="node-input-cnctRetryInterval"><span data-i18n="editor.cnctRetryInterval"></span></label>
-            <input type="number" min="0" id="node-input-cnctRetryInterval">
-        </div>
-        <div class="form-tips" id="tip-cnctRetryInterval"><span data-i18n="editor.tip-cnctRetryInterval"></span></div>
-        <div class="form-row">
-            <label for="node-input-tappingInterval"><span data-i18n="editor.tappingInterval"></span></label>
-            <input type="number" min="0" id="node-input-tappingInterval">
-        </div>
-        <div class="form-tips" id="tip-tappingInterval"><span data-i18n="editor.tip-tappingInterval"></span></div>
-    </div>
-</div>
 
 <!-- ノード名 -->
 <hr />

@@ -13,8 +13,8 @@
             "guide": "itemObject guide"
         },
         "input": {
-            "getchartdata": "DynamoDB(for chart)",
-            "formatdata": "formatdata"
+            "getchartdata": "Data Get V2(chart)II",
+            "formatdata": "msg.payload"
         },
         "itemObject": {
             "add": "add",

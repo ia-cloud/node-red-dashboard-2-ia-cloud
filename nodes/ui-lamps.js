@@ -58,24 +58,28 @@ module.exports = function (RED) {
                 if (confsel == "inlatestSet" || confsel == "formatSet") {
                     let value = msg.payload;
 
-                    for (idx in value) {
+                    const arr = Array.isArray(value) ? value : [value];
+                    for (idx in arr) {
                         lamps[idx] = {
                             state: false,
                             color: config.params[idx].color,
                             phase: config.params[idx].phase,
                             name: config.params[idx].name
                         }
-                        if ((value[idx] == false && value[idx] != "") || value[idx] == "false" || value[idx] == "0" || value[idx] == "reset" || value[idx] == "off") {
+                        if ((arr[idx] == false && arr[idx] != "") || arr[idx] == "false" || arr[idx] == "0" || arr[idx] == "reset" || arr[idx] == "off") {
                             lamps[idx].state = false;
-                        } else if (value[idx] == true || value[idx] == "true" || value[idx] == "1" || value[idx] == "set" || value[idx] == "on" || trueList.indexOf(value[idx]) > -1) {
+                        } else if (arr[idx] == true || arr[idx] == "true" || arr[idx] == "1" || arr[idx] == "set" || arr[idx] == "on" || trueList.indexOf(arr[idx]) > -1) {
                             lamps[idx].state = true;
                         }
                     }
                 } else {
                     var data = msg.payload;
-                    var nameList = data[0].series;
-                    var valueList = data[0].data;
-
+                    let nameList = [];
+                    let valueList = [];
+                    for (let item of data) {
+                        nameList.push(item.series);
+                        valueList.push(item.y);
+                    }
 
                     for (idx in valueList) {
                         lamps[idx] = {
@@ -84,13 +88,10 @@ module.exports = function (RED) {
                             phase: config.params[idx].phase,
                             name: config.params[idx].name
                         }
-                        if ((valueList[idx][0].y == false && valueList[idx][0].y != "") || valueList[idx][0].y == "false" || valueList[idx][0].y == "0") {
+                        if ((valueList[idx] == false && valueList[idx] != "") || valueList[idx] == "false" || valueList[idx] == "0" || valueList[idx] == "reset" || valueList[idx] == "off") {
                             lamps[idx].state = false;
-                        } else if (valueList[idx][0].y == true || valueList[idx][0].y == "true" || valueList[idx][0].y == "1" || trueList.indexOf(valueList[idx][0].y) > -1) {
+                        } else if (valueList[idx] == true || valueList[idx] == "true" || valueList[idx] == "1" || valueList[idx] == "set" || valueList[idx] == "on" || trueList.indexOf(valueList[idx]) > -1) {
                             lamps[idx].state = true;
-                        }
-                        if (lamps[idx].name == "") {
-                            lamps[idx].name == nameList[idx];
                         }
                     }
                 }

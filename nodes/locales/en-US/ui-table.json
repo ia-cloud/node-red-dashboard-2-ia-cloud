@@ -11,9 +11,9 @@
             "name": "name"
         },
         "input": {
-            "retrieve": "retrieve",
-            "getchartdata": "retrieve-getChartdata",
-            "formatdata": "formatData",
+            "retrieve": "Data Get V2(Normal)II",
+            "getchartdata": "Data Get V2(chart)II",
+            "formatdata": "msg.payload",
             "item": "item"
         },
         "contype":{

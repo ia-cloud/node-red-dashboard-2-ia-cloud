@@ -1,11 +1,40 @@
 <script type="text/x-red" data-help-name="ui-num-dt-2" data-lang="ja">
-	<p><h1>ダッシュボードのカスタムノード</h1></p>
-    <p>「数値」もしくは「日付」を選択し、これらに対応した文字列を、入力メッセージ(msg.payload)の配列数だけ縦に並べて、ダッシュボード上に表示する。</p>
-    <p>データ型：「数値」</p>
-    <p>「ラベル + 値 + 単位」を表示する。</p>
-    <p>msg.payloadのデータ形式は、[[ラベル(string), 値(number), 単位(string)], ...]とする。</p><br>
-    <p>データ型：「日時」</p>
-    <p>「ラベル + 日時」を表示する。</p>
-    <p>msg.payloadのデータ形式は、[日時(*1), ...]とする。</p>
-    <p>(*1): <a href="https://momentjs.com/docs/#/parsing/">Moment.js Documentation Parse</a></p><br>
+	<p>このノードは、ダッシュボードに数値または日時を縦に並べて表示するノードです。入力データを表示用の形式に変換して表示します。</p>
+
+    <h3>入力メッセージ</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">array</span></dt>
+        <dd>
+            ノード設定に応じて、以下の形式のデータを入力します。
+            <ul>
+                <li>数値データ：<code>[[ラベル(string), 値(number), 単位(string)], ...]</code></li>
+                <li>日時データ：日時を値として持つオブジェクトの配列</li>
+            </ul>
+        </dd>
+    </dl>
+
+    <h3>詳細説明</h3>
+    <p>このノードは設定内容に応じて入力データを表示用の形式に変換して表示します。</p>
+    <ul>
+        <li><code>数値</code>：ラベル、値、単位を表示します。</li>
+        <li><code>日付</code>：ラベル、日時を表示します。</li>
+    </ul>
+
+    <p>数値データでは、表示設定により以下を変更できます。</p>
+    <ul>
+        <li><code>ラベル</code>：表示ラベル</li>
+        <li><code>有効桁数</code>：小数桁数</li>
+        <li><code>単位</code>：表示単位</li>
+    </ul>
+
+    <p>日時データでは、表示設定により以下を変更できます。</p>
+    <ul>
+        <li><code>ラベル</code>：表示ラベル</li>
+        <li><code>表示形式</code>：日時表示形式</li>
+    </ul>
+
+    <p>日時の変換には
+        <a href="https://momentjs.com/docs/#/parsing/" target="_blank">Moment.js Documentation</a>
+        を使用します。
+    </p>
 </script>
