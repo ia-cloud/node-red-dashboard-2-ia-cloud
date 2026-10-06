@@ -1,9 +1,10 @@
 <script type="text/x-red" data-help-name="ui-lamps-2" data-lang="ja">
-    <p><h1>ダッシュボードのカスタムノード</h1></p>
+    <p>このノードは、ダッシュボードに表示灯を並べて表示するノードです。入力データを表示灯の点灯状態に変換して表示します。</p>
     <p>「形状、色」の設定した数だけ、表示灯をダッシュボード上に並べて表示する。</p>
     <p>向き：「縦」上から下へ並べて表示する。</p>
     <p>向き：「横」左から右へ並べて表示する。</p><br>
     <p>msg.payloadのデータ形式は、[value, ...]とする。</p>
+    <p>ランプが一つの場合は、配列ではなく基本型のvalueでも可。</p>
     <p>表示灯の状態変化は、以下のようにvalueの値によって異なる。</p>
     <style>
         td{
@@ -18,7 +19,7 @@
             <td>データ型</td>
         </tr>
         <tr>
-            <td rowspan="4">点灯</td>
+            <td rowspan="6">点灯</td>
             <td>true</td>
             <td>boolean</td>
         </tr>
@@ -35,7 +36,15 @@
             <td>string</td>
         </tr>
         <tr>
-            <td rowspan="4">消灯</td>
+            <td>"set"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>"on"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td rowspan="6">消灯</td>
             <td>false</td>
             <td>boolean</td>
         </tr>
@@ -52,6 +61,14 @@
             <td>string</td>
         </tr>
         <tr>
+            <td>"reset"</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>"off"</td>
+            <td>string</td>
+        </tr>
+        <tr>
             <td rowspan="2">変化なし</td>
             <td>""</td>
             <td>string</td>
@@ -61,5 +78,7 @@
             <td>null</td>
         </tr>
     </table>
+
+    <p>「点灯させる値」では、点灯させる値を任意に設定できます。未設定の場合は、上記の値がデフォルトの判定条件として使用されます。</p>
 
 </script>

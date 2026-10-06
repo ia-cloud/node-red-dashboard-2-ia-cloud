@@ -7,7 +7,7 @@ dashboard-2 - ui-datesetノード
 ## 機能概要
 
 このノードは開始日時・終了日時の取得ができます。
-ノード「retrieve-iacloud」、「retrieve-getchartdata」の入力に使用します。
+ノード「retrieveII」、「retrieve-getchartdataII」の入力に使用します。
 
 ## プロパティ
 
@@ -28,9 +28,9 @@ dashboard-2 - ui-datesetノード
 ## 出力メッセージ
 
 ダッシュボードから開始日時、終了日時が取得できます。
-本ノードの出力を、ノード「retrieve-iacloud」、「retrieve-getchartdata-iacloud」の入力に使用することが可能です。
+本ノードの出力を、ノード「retrieveII」、「retrieve-getchartdataII」の入力に使用することが可能です。
 
-開始日時がsdate, 終了日時がedateに設定されたオブジェクトが出力されます。
+開始日時がsdatetime, 終了日時がedatetimeに設定されたオブジェクトが出力されます。
 開始日時、終了日付が入力されていなかった場合、入力されなかった項目が削除された結果が出力されます。
 出力されるメッセージ例は以下の通りです。
 

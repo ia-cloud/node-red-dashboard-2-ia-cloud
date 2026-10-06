@@ -1,12 +1,12 @@
-# node-red-dashboard-2-ia-cloud - retrieve-getchartdata
+# node-red-dashboard-2-ia-cloud - retrieve-getchartdataII
 
 ## 名称
 
-retrieve-getchartdataノード
+retrieve-getchartdataIIノード
 
 ## 機能概要
 
-このノードは指定したia-cloud CCSからiacloudオブジェクトを取得・アグリゲーション処理を行い、dashborad - chart、ダッシュボード2 - chartへ入力する際の形へ変換することができます。
+このノードは指定したia-cloud CCSからiacloudオブジェクトを取得し、必要に応じてアグリゲーション処理を行ったうえで、dashborad - chart、ダッシュボード2 - chartへ入力する際の形へ変換して出力します。
 
 ## プロパティー
 
@@ -16,13 +16,9 @@ retrieve-getchartdataノード
 
   フロー上で表示するノード名を設定します。
 
-- ### ユーザID
+- ### 接続先CCS
 
-  使用するia-cloud ユーザのIDを設定します。
-
-- ### パスワード
-
-  使用するia-cloud ユーザのパスワードを設定します。
+  ia-cloud CCS接続設定ノードを設定します。
 
 - ### テーブル名
 
@@ -40,7 +36,8 @@ retrieve-getchartdataノード
 
 - ### 期間
 
-  「ノード：[ui-dateset-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/retrieve-getchartdata.md)」からの入力により期間設定を行いたい場合は、「dateasetからの入力を許可する」を選択します。
+  取得するデータの期間を設定します。
+  「ノード：[ui-dateset-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/ui-dateset.md)」からの入力により期間設定を行いたい場合は、「dateasetからの入力を許可する」を選択します。
   本ノード内で期間設定を行いたい場合は、手動設定を選択して取得開始日時と終了日時を記述してください。
   未入力の場合、全期間が検索対象になります。
 
@@ -76,7 +73,7 @@ retrieve-getchartdataノード
 
 ## 出力メッセージ
 
-取得したiacloudオブジェクトをdashborad - chartへ入力する際の形に変換した結果が出力されます。
+取得したiacloudオブジェクトをdashborad - chart および ダッシュボード2 - chartへ入力する際の形に変換した結果が出力されます。
 以下に例を示します。
 
          [

@@ -1,17 +1,27 @@
 <script type="text/x-red" data-help-name="ui-table-2" data-lang="ja">
-	<p>ダッシュボードにテーブル(表)を表示します。ウィジェット追加方法
-        [<a herf="https://dashboard.flowfuse.com/contributing/widgets/third-party.html">Building Third Party Widgets</a>]を参考に実装したノードです。</p>
+	<p>このノードは、ダッシュボードにテーブル(表)を表示するノードです。入力データを表形式に変換して表示します。</p>
     <h3>入力メッセージ</h3>
     <dl class="message-properties">
-        <dt>payload <span class="property-type">object</span></dt>
-        <dd>「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">retrieve-getChartdata-iacloud</a>」からの出力結果　または
-            「ノード：<a herf="https://github.com/FlowFuse/node-red-dashboard">node-red-contrib-dashboard</a>」 - chartと同様のフォーマット。詳しくは<a herf="https://github.com/FlowFuse/node-red-dashboard/blob/main/docs/nodes/widgets/ui-chart.md">本ドキュメント</a>を参照</dd>
+        <dt>payload <span class="property-type">object / array</span></dt>
+        <dd>
+            ノード設定に応じて、以下の形式のデータを入力します。
+            <ul>
+                <li>データ取得V2(標準)II</li>
+                <li>データ取得V2(chart用)II</li>
+                <li>msg.payload</li>
+            </ul>
+        </dd>
     </dl>
     <h3>詳細説明</h3>
-    <p>このノードは「ノード：<a href="https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/tree/master/retrieve-getchartdata-iacloud">retrieve-getChartdata-iacloud</a>」
-        からの出力を直接本ノードに入力して使用することができます。
-    <p>上記ノードからの出力を使用せず、基本フォーマットデータを入力する場合は、以下プロパティを設定する必要があります。</p>
+    <p>このノードは設定内容に応じて入力データを表形式に変換して表示します。</p>
     <ul>
-        <li><code>項目名</code> - (文字列)データ表示時の項目名をカンマ区切りで入力する</li>
+        <li><code>データ取得V2(標準)II</code>：標準形式のデータを表形式に変換します。</li>
+        <li><code>データ取得V2(chart用)II</code>：Chart用データを表形式に変換します。Dashboard 1.0 / 2.0 形式に対応します。</li>
+        <li><code>msg.payload</code>：msg.payload形式で表示する場合、<code>項目名</code>に列名をカンマ区切りで設定します。</li>
+    </ul>
+
+    <p>msg.payload形式を使用する場合は、以下プロパティを設定してください。</p>
+    <ul>
+        <li><code>項目名</code> - （文字列）列名をカンマ区切りで入力します。</li>
     </ul>
 </script>

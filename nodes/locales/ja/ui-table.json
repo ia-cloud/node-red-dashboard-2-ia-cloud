@@ -11,9 +11,9 @@
             "name": "名前"
         },
         "input": {
-            "retrieve": "retrieve",
-            "getchartdata": "retrieve-getChartdata",
-            "formatdata": "フォーマットデータ",
+            "retrieve": "データ取得V2(標準)II",
+            "getchartdata": "データ取得V2(chart用)II",
+            "formatdata": "msg.payload",
             "item": "項目名"
         },
         "contype":{

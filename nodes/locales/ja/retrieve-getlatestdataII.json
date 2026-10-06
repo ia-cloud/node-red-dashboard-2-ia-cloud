@@ -33,7 +33,8 @@
         },
         "item": {
             "graphData": "グラフ用データ",
-            "numericData": "数値変換用データ"
+            "numericData": "数値変換用データ",
+            "iaCloudData": "ia-cloudオブジェクト"
         }
     },
     "editor": {

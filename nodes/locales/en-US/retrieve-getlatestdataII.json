@@ -1,6 +1,6 @@
 {
     "retrievegetlatestdata": {
-        "paletteLabel": "dataGetV2(latest)II",
+        "paletteLabel": "DataGetV2(latest)II",
         "label": {
             "name": "name",
             "ccs-connection-configII": "CCS",
@@ -33,7 +33,8 @@
         },
         "item": {
             "graphData": "graphData",
-            "numericData": "num_dt Data"
+            "numericData": "num_dt Data",
+            "iaCloudData": "ia-cloud Object"
         }
     },
     "editor": {

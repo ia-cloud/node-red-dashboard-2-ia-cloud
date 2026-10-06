@@ -1,19 +1,15 @@
-# node-red-dashboard-2-ia-cloud - retrieve-iacloud
+# node-red-dashboard-2-ia-cloud - retrieveII-iacloud
 
 ## 名称
 
-AWS retrieveノード
+AWS retrieveIIノード
 
 ## 機能概要
 
-AWS-SDKでretrieve関数をラップするノードのセットです。
+このノードは、指定したDynamoDBからia-cloudオブジェクトを取得するノードです。
+必要に応じて期間指定、繰り返し実行、アグリゲーション、表示桁数の丸めを設定できます。
 
-このノードはscan, query関数のみを使用できます。
-
-本ノードはJavascript APIをラップしたものです。
-より詳細に知るには、[APIドキュメント](https://docs.aws.amazon.com/sdkforruby/api/Aws/retrieve/Client.html)を参照してください。
-
-このノードを使用するには、retrieve操作ユーザの情報が必要になります。
+このノードを使用するには、retrieveArray操作ユーザの情報が必要になります。
 ユーザ情報は別途発行・取得する必要があります。
 
 ## プロパティー
@@ -24,22 +20,13 @@ AWS-SDKでretrieve関数をラップするノードのセットです。
 
   フロー上で表示するノード名を設定します。
 
-- ### ユーザID
+- ### 接続先CCS
 
-  使用するretrieve操作ユーザのIDを設定します。
-
-- ### パスワード
-
-  使用するretrieve操作ユーザのパスワードを設定します。
+  ia-cloud CCS接続設定ノードを設定します。
 
 - ### テーブル名
 
   検索を行うテーブル名を設定します。
-
-- ### 機能
-
-  利用する機能を設定します。
-  機能の詳細は次項目「機能」を参照してください。
 
 - ### オブジェクトキー
 
@@ -47,6 +34,7 @@ AWS-SDKでretrieve関数をラップするノードのセットです。
 
 - ### 期間
 
+  取得するデータの期間を設定します。
   「ノード：[ui-dateset-2](https://github.com/ia-cloud/node-red-dashboard-2-ia-cloud/blob/master/README/ui-dateset.md)」からの入力により期間設定を行いたい場合は、「dateasetからの入力を許可する」を選択します。
   本ノード内で期間設定を行いたい場合は、手動設定を選択して取得開始日時と終了日時を記述してください。
   未入力の場合、全期間が検索対象になります。
@@ -81,12 +69,32 @@ AWS-SDKでretrieve関数をラップするノードのセットです。
   検索結果の並び順(昇順/降順)を設定します。
   アグリゲーション処理が設定されている場合、並び順を指定することはできません。
 
-## 機能
+## 出力メッセージ
 
-### (1) scan
+  取得結果は payload.Items に格納して出力されます。
+  以下に例を示します。
 
-テーブルまたはセカンダリインデックスの全てのアイテムにアクセスして、一つ以上のアイテムとアイテムの属性を返します。
-
-### (2) query
-
-主キー値に基づいて項目が検索されます。
+    {
+      "payload": {
+        "Items": [
+          {
+            "objectKey": "sample-key",
+            "dataObject": {
+              "objectType": "iaCloudObject",
+              "objectContent": {
+                "contentType": "ModbusPLC",
+                "contentData": [
+                  {
+                    "dataName": "温度",
+                    "dataValue": 22.5,
+                    "unit": "℃"
+                  }
+                ]
+              },
+              "timestamp": "2026-04-01T10:00:00+09:00"
+            },
+            "timestamp": "2026-04-01T10:00:00+09:00"
+          }
+        ]
+      }
+    }

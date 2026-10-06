@@ -1,6 +1,6 @@
 {
     "retrieve": {
-        "paletteLabel": "Data Get V2 (Normal)II",
+        "paletteLabel": "DataGetV2(Normal)II",
         "label": {
             "name": "name",
             "ccs-connection-configII": "CCS",
